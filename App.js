@@ -1,20 +1,12 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import { createStackNavigator, createAppContainer } from "react-navigation";
+var { Screen1 } = require("./screens/Screen1/index.js");
+var { Screen2 } = require("./screens/Screen2/index.js");
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Text>This app will become Potentia!</Text>
-    </View>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+const MainNavigator = createStackNavigator({
+  Screen1: { screen: Screen1 },
+  Screen2: { screen: Screen2 }
 });
+
+const App = createAppContainer(MainNavigator);
 
 export default App;
