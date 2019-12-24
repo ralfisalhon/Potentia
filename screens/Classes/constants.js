@@ -2,7 +2,7 @@
 // const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
 export const c = {
-  logo_uri: {uri: 'http://placehold.it/512x256'},
+  logo_uri: require('../../assets/images/potentia_logo.png'),
   text_color: 'black',
   placeholder1: 'Email/Phone Number',
   placeholder2: 'Password',

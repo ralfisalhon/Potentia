@@ -1,19 +1,30 @@
 import React, {Component} from 'react';
-import {TouchableOpacity, Text} from 'react-native';
+import {TouchableOpacity, Text, StyleSheet} from 'react-native';
 
 class Button extends Component {
   static defaultProps = {
     text: 'Lorem Ipsum',
-    style: {borderWidth: 1, padding: 5, borderRadius: 5},
     onPress: () => alert('I am pressed!'),
+    textStyle: {
+      fontFamily: 'Avenir Next',
+      color: 'white',
+      fontWeight: '500',
+    },
   };
 
   render() {
-    const {text, style, onPress} = this.props;
+    const {text, style, textStyle, onPress} = this.props;
+    const defStyle = {
+      borderWidth: 1,
+      padding: 5,
+      borderRadius: 5,
+      backgroundColor: '#34495e',
+      borderColor: '#3498db',
+    };
 
     return (
-      <TouchableOpacity style={style} onPress={onPress}>
-        <Text>{text}</Text>
+      <TouchableOpacity style={[defStyle, style]} onPress={onPress}>
+        <Text style={textStyle}>{text}</Text>
       </TouchableOpacity>
     );
   }

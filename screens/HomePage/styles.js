@@ -6,6 +6,7 @@ export const s = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     flex: 1,
+    backgroundColor: '#2980b9',
   },
   center: {
     alignItems: 'center',
@@ -26,10 +27,10 @@ export const s = StyleSheet.create({
     height: 2,
     width: windowWidth,
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: '#ecf0f1',
   },
   button: {
-    borderWidth: 1,
+    borderWidth: 0,
     paddingVertical: 30,
     width: windowWidth * 0.8,
     alignItems: 'center',
