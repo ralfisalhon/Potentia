@@ -6,6 +6,7 @@ export const s = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     flex: 1,
+    backgroundColor: '#ecf0f1',
   },
   center: {
     alignItems: 'center',
@@ -34,17 +35,14 @@ export const s = StyleSheet.create({
     fontSize: 12,
   },
   input: {
-    color: 'black',
-    fontSize: 20,
-    borderWidth: 1,
-    padding: 5,
     width: windowWidth * 0.75,
   },
   button: {
     width: windowWidth * 0.5,
-    borderWidth: 1,
+    borderWidth: 0,
     padding: 10,
     alignItems: 'center',
     borderRadius: 5,
+    backgroundColor: '#2980b9',
   },
 });

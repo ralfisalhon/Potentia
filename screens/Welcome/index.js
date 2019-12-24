@@ -54,14 +54,15 @@ export class Welcome extends React.Component {
         <Padding height={20} />
         <View style={s.center}>
           <Input
-            placeholder={c.placeholder1}
+            placeholder={'Email/Phone Number'}
             value={this.state.name}
             style={[s.text, s.input]}
             onChange={text => this.updateField('name', text)}
+            maxLength={30}
           />
           <Padding height={10} />
           <Input
-            placeholder={c.placeholder2}
+            placeholder={'Password'}
             value={this.state.password}
             style={[s.text, s.input]}
             onChange={text => this.updateField('password', text)}
@@ -70,7 +71,7 @@ export class Welcome extends React.Component {
           <Padding height={20} />
           <Button
             style={s.button}
-            text={c.buttonText}
+            text={'Log In'}
             onPress={() => navigate('HomePage')}
           />
           <Padding height={5} />

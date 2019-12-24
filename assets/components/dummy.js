@@ -13,8 +13,8 @@ class Welcome extends Component {
 
     return (
       <View style={styles.textContainer}>
-        <Text style={[human.largeTitleWhite, styles.title]}>Meet Jamblr,</Text>
-        <Text style={[human.title3White, styles.subtitle]}>
+        <Text style={[human.largeTitle#ecf0f1, styles.title]}>Meet Jamblr,</Text>
+        <Text style={[human.title3#ecf0f1, styles.subtitle]}>
           Your Music Discovery &{"\n"}Playlist Creation Assistant
         </Text>
       </View>

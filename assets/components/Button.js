@@ -7,7 +7,7 @@ class Button extends Component {
     onPress: () => alert('I am pressed!'),
     textStyle: {
       fontFamily: 'Avenir Next',
-      color: 'white',
+      color: '#ecf0f1',
       fontWeight: '500',
     },
   };
