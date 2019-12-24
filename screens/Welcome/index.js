@@ -27,15 +27,38 @@ export class Welcome extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: null,
+      username: null,
       password: null,
+      loggingIn: false,
     };
   }
 
   componentDidMount() {}
 
   updateField = (field, text) => {
-    // console.warn(text);
+    if (field == 'username') {
+      this.setState({username: text});
+    } else if (field == 'password') {
+      this.setState({password: text});
+    }
+  };
+
+  logIn = (username, password) => {
+    if (username && password && username.length > 0 && password.length > 0) {
+      console.warn(
+        'Simulating 200 login with',
+        username,
+        password,
+        'in 0.5 seconds',
+      );
+      this.setState({loggingIn: true});
+      setTimeout(() => {
+        this.setState({loggingIn: false});
+        this.props.navigation.navigate('HomePage');
+      }, 500);
+    } else {
+      alert('Please enter your username and password!');
+    }
   };
 
   render() {
@@ -43,21 +66,21 @@ export class Welcome extends React.Component {
 
     return (
       <SafeAreaView style={s.container}>
-        <Padding height={30} />
+        <Padding height={35} />
         <View style={s.center}>
           <View style={s.logo}>
             <Image style={s.image} resizeMode={'contain'} source={c.logo_uri} />
           </View>
         </View>
-        <Padding height={20} />
+        <Padding height={40} />
         <Text style={[s.text, s.title]}>Welcome!</Text>
         <Padding height={20} />
         <View style={s.center}>
           <Input
             placeholder={'Email/Phone Number'}
-            value={this.state.name}
+            value={this.state.username}
             style={[s.text, s.input]}
-            onChange={text => this.updateField('name', text)}
+            onChange={text => this.updateField('username', text)}
             maxLength={30}
           />
           <Padding height={10} />
@@ -69,13 +92,24 @@ export class Welcome extends React.Component {
             password={true}
           />
           <Padding height={20} />
-          <Button
-            style={s.button}
-            text={'Log In'}
-            onPress={() => navigate('HomePage')}
-          />
-          <Padding height={5} />
-          <Text style={[s.text, s.create]}>Create a new account</Text>
+
+          {!this.state.loggingIn ? (
+            <View style={s.center}>
+              <Button
+                style={s.button}
+                text={'Log In'}
+                onPress={() =>
+                  this.logIn(this.state.username, this.state.password)
+                }
+              />
+              <Padding height={10} />
+              <Text style={[s.text, s.create]}>Create a new account</Text>
+            </View>
+          ) : (
+            <View style={s.center}>
+              <Text style={[s.text, s.loading]}>Checking credentials...</Text>
+            </View>
+          )}
         </View>
       </SafeAreaView>
     );

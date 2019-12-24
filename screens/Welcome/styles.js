@@ -12,7 +12,7 @@ export const s = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    height: windowHeight * 0.25,
+    height: windowHeight * 0.15,
     width: windowWidth * 0.75,
   },
   image: {
@@ -28,6 +28,11 @@ export const s = StyleSheet.create({
     textAlign: 'left',
     marginLeft: windowWidth * 0.125,
     fontSize: 24,
+  },
+  loading: {
+    fontWeight: '500',
+    textAlign: 'left',
+    fontSize: 16,
   },
   create: {
     textDecorationLine: 'underline',
