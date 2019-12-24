@@ -1,10 +1,16 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
-var { Screen1 } = require("./screens/Screen1/index.js");
-var { Screen2 } = require("./screens/Screen2/index.js");
+import {createStackNavigator, createAppContainer} from 'react-navigation';
+var {Welcome} = require('./screens/Welcome/index.js');
+var {HomePage} = require('./screens/HomePage/index.js');
+var {Classes} = require('./screens/Classes/index.js');
+var {Tools} = require('./screens/Tools/index.js');
+var {Progress} = require('./screens/Progress/index.js');
 
 const MainNavigator = createStackNavigator({
-  Screen1: { screen: Screen1 },
-  Screen2: { screen: Screen2 }
+  Welcome: {screen: Welcome},
+  HomePage: {screen: HomePage},
+  Classes: {screen: Classes},
+  Tools: {screen: Tools},
+  Progress: {screen: Progress},
 });
 
 const App = createAppContainer(MainNavigator);

@@ -5,6 +5,7 @@ class Button extends Component {
   static defaultProps = {
     text: 'Lorem Ipsum',
     style: {borderWidth: 1, padding: 5, borderRadius: 5},
+    onPress: () => alert('I am pressed!'),
   };
 
   render() {

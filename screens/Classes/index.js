@@ -1,13 +1,13 @@
 import React from 'react';
-import {View, Dimensions, Image, SafeAreaView} from 'react-native';
+import {View, Dimensions, Image, SafeAreaView, Text} from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
-import {s} from './styles.js';
-import {c} from './constants.js';
+import {s} from './styles';
+import {c} from './constants';
 
 import {Padding} from '../../assets/components/Padding';
 
-export class HomePage extends React.Component {
+export class Classes extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -22,11 +22,17 @@ export class HomePage extends React.Component {
 
     return (
       <SafeAreaView style={s.container}>
-        <Padding height={30} />
+        <Padding height={20} />
         <View style={s.center}>
           <View style={s.logo}>
             <Image style={s.image} resizeMode={'contain'} source={c.logo_uri} />
           </View>
+        </View>
+        <Padding height={20} />
+        <View style={s.line} />
+        <Padding height={20} />
+        <View style={s.center}>
+          <Text>Classes</Text>
         </View>
       </SafeAreaView>
     );

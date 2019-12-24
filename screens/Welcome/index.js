@@ -11,15 +11,15 @@ import {
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 import {human} from 'react-native-typography';
 
-import {s} from './styles.js';
-import {c} from './constants.js';
+import {s} from './styles';
+import {c} from './constants';
 
 import {Padding} from '../../assets/components/Padding';
 import {Input} from '../../assets/components/Input';
 import {Button} from '../../assets/components/Button';
 /* <Padding height={50} /> */
 
-export class Screen1 extends React.Component {
+export class Welcome extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -71,7 +71,7 @@ export class Screen1 extends React.Component {
           <Button
             style={s.button}
             text={c.buttonText}
-            onPress={() => navigate('Screen2')}
+            onPress={() => navigate('HomePage')}
           />
           <Padding height={5} />
           <Text style={[s.text, s.create]}>Create a new account</Text>
