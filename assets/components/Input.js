@@ -7,6 +7,7 @@ class Input extends Component {
     value: 'value',
     maxLength: 20,
     placeholderTextColor: 'black',
+    password: false,
   };
 
   render() {
@@ -17,6 +18,7 @@ class Input extends Component {
       placeholderTextColor,
       style,
       onChange,
+      password,
     } = this.props;
 
     return (
@@ -30,6 +32,8 @@ class Input extends Component {
         maxLength={maxLength}
         placeholderTextColor={placeholderTextColor}
         onChangeText={onChange}
+        secureTextEntry={password}
+        autoCompleteType={password ? 'password' : 'username'}
       />
     );
   }

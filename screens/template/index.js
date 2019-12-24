@@ -1,15 +1,15 @@
-import React from "react";
-import { Text, View, Dimensions } from "react-native";
-const { width: windowWidth, height: windowHeight } = Dimensions.get("window");
-import { human } from "react-native-typography";
+import React from 'react';
+import {View, Dimensions, Image, SafeAreaView} from 'react-native';
+const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
-import { styles } from "./style.js";
+import {s} from './styles.js';
+import {c} from './constants.js';
 
-// import { Profile } from "../assets/components/Profile";
+import {Padding} from '../../assets/components/Padding';
 
-export class LoginScreen extends React.Component {
+export class Screen2 extends React.Component {
   static navigationOptions = {
-    header: null
+    header: null,
   };
 
   constructor() {
@@ -17,15 +17,18 @@ export class LoginScreen extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {}
-
   render() {
-    const {} = this.props.navigation;
+    const {navigate} = this.props.navigation;
 
     return (
-      <View style={styles.container}>
-        <Text style={human.title1}>Screen1</Text>
-      </View>
+      <SafeAreaView style={s.container}>
+        <Padding height={30} />
+        <View style={s.center}>
+          <View style={s.logo}>
+            <Image style={s.image} resizeMode={'contain'} source={c.logo_uri} />
+          </View>
+        </View>
+      </SafeAreaView>
     );
   }
 }

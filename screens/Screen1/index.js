@@ -39,6 +39,8 @@ export class Screen1 extends React.Component {
   };
 
   render() {
+    const {navigate} = this.props.navigation;
+
     return (
       <SafeAreaView style={s.container}>
         <Padding height={30} />
@@ -63,9 +65,14 @@ export class Screen1 extends React.Component {
             value={this.state.password}
             style={[s.text, s.input]}
             onChange={text => this.updateField('password', text)}
+            password={true}
           />
           <Padding height={20} />
-          <Button style={s.button} text={c.buttonText} />
+          <Button
+            style={s.button}
+            text={c.buttonText}
+            onPress={() => navigate('Screen2')}
+          />
           <Padding height={5} />
           <Text style={[s.text, s.create]}>Create a new account</Text>
         </View>
