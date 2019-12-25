@@ -103,7 +103,11 @@ export class Welcome extends React.Component {
                 }
               />
               <Padding height={10} />
-              <Text style={[s.text, s.create]}>Create a new account</Text>
+              <Text
+                style={[s.text, s.create]}
+                onPress={() => navigate('CreateAccount')}>
+                Create a new account
+              </Text>
             </View>
           ) : (
             <View style={s.center}>
