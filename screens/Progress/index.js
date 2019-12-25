@@ -3,7 +3,7 @@ import {View, Dimensions, Image, SafeAreaView, Text} from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
 import {s} from './styles';
-import {c} from './constants';
+import {c} from '../../constants';
 
 import {Padding} from '../../assets/components/Padding';
 

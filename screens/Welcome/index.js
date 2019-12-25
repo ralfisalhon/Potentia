@@ -12,7 +12,7 @@ const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 import {human} from 'react-native-typography';
 
 import {s} from './styles';
-import {c} from './constants';
+import {c} from '../../constants';
 
 import {Padding} from '../../assets/components/Padding';
 import {Input} from '../../assets/components/Input';
