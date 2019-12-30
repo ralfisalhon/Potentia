@@ -1,12 +1,12 @@
 import {StyleSheet, Dimensions} from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
+import {c} from '../../constants';
+
 export const s = StyleSheet.create({
   container: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
-    backgroundColor: '#ecf0f1',
+    backgroundColor: c.bg_color,
   },
   center: {
     alignItems: 'center',
@@ -20,11 +20,17 @@ export const s = StyleSheet.create({
     width: undefined,
     flex: 1,
   },
+  image2: {
+    width: windowWidth,
+    flex: 1,
+    // backgroundColor: 'red',
+  },
   text: {
     fontFamily: 'Avenir Next',
+    color: c.text_color,
   },
   title: {
-    fontWeight: '500',
+    fontWeight: '600',
     textAlign: 'left',
     marginLeft: windowWidth * 0.125,
     fontSize: 24,
@@ -35,19 +41,19 @@ export const s = StyleSheet.create({
     fontSize: 16,
   },
   create: {
-    textDecorationLine: 'underline',
-    color: 'blue',
+    // textDecorationLine: 'underline',
+    color: '#0069f6',
     fontSize: 12,
+    fontWeight: '500',
   },
   input: {
     width: windowWidth * 0.75,
   },
   button: {
     width: windowWidth * 0.5,
-    borderWidth: 0,
-    padding: 10,
-    alignItems: 'center',
-    borderRadius: 5,
-    backgroundColor: '#2980b9',
+  },
+  bottom_dots: {
+    flex: 1,
+    justifyContent: 'flex-end',
   },
 });

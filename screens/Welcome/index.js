@@ -73,11 +73,14 @@ export class Welcome extends React.Component {
           </View>
         </View>
         <Padding height={40} />
-        <Text style={[s.text, s.title]}>Welcome!</Text>
+        <View style={s.center}>
+          <Text style={[s.text, s.title]}>Welcome!</Text>
+        </View>
+
         <Padding height={20} />
         <View style={s.center}>
           <Input
-            placeholder={'Email/Phone Number'}
+            placeholder={'Email / Phone Number'}
             value={this.state.username}
             style={[s.text, s.input]}
             onChange={text => this.updateField('username', text)}
@@ -97,7 +100,7 @@ export class Welcome extends React.Component {
             <View style={s.center}>
               <Button
                 style={s.button}
-                text={'Log In'}
+                text={'Login'}
                 onPress={() =>
                   this.logIn(this.state.username, this.state.password)
                 }
@@ -106,14 +109,28 @@ export class Welcome extends React.Component {
               <Text
                 style={[s.text, s.create]}
                 onPress={() => navigate('CreateAccount')}>
-                Create a new account
+                Create New Account
               </Text>
+              <Padding height={20} />
+              <Button
+                style={[s.button, {backgroundColor: c.potentia_orange}]}
+                textStyle={{fontSize: 16}}
+                text={'Continue as Guest'}
+                onPress={() => navigate('HomePage')}
+              />
             </View>
           ) : (
             <View style={s.center}>
               <Text style={[s.text, s.loading]}>Checking credentials...</Text>
             </View>
           )}
+        </View>
+        <View style={s.bottom_dots}>
+          <Image
+            style={s.image2}
+            resizeMode={'contain'}
+            source={c.bottom_dots_uri}
+          />
         </View>
       </SafeAreaView>
     );

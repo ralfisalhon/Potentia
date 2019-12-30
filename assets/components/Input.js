@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import {TextInput, Dimensions} from 'react-native';
 const {width: windowWidth} = Dimensions.get('window');
 
+import {c} from '../../constants';
+
 class Input extends Component {
   static defaultProps = {
     placeholder: 'placeholder',
     value: 'value',
     maxLength: 20,
-    placeholderTextColor: '#ecf0f1',
+    placeholderTextColor: c.text_color,
     password: false,
   };
 
@@ -23,12 +25,15 @@ class Input extends Component {
     } = this.props;
 
     const defStyle = {
-      color: '#ecf0f1',
-      fontSize: 20,
+      fontSize: 16,
       borderWidth: 0,
-      padding: 10,
-      backgroundColor: '#34495e',
+      padding: 14,
+      backgroundColor: 'white',
       borderRadius: 5,
+      textAlign: 'center',
+      fontWeight: '600',
+      borderRadius: 100,
+      borderWidth: 1,
     };
 
     return (

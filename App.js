@@ -1,4 +1,5 @@
 import {createStackNavigator, createAppContainer} from 'react-navigation';
+
 var {Welcome} = require('./screens/Welcome/index');
 var {HomePage} = require('./screens/HomePage/index');
 var {Classes} = require('./screens/Classes/index');
