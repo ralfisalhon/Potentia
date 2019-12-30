@@ -21,18 +21,16 @@ export const s = StyleSheet.create({
     flex: 1,
   },
   image2: {
-    width: windowWidth,
+    width: windowWidth + 10,
     flex: 1,
-    // backgroundColor: 'red',
   },
   text: {
     fontFamily: 'Avenir Next',
     color: c.text_color,
   },
   title: {
-    fontWeight: '600',
+    fontWeight: '500',
     textAlign: 'left',
-    marginLeft: windowWidth * 0.125,
     fontSize: 24,
   },
   loading: {

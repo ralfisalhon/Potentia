@@ -112,12 +112,14 @@ export class Welcome extends React.Component {
                 Create New Account
               </Text>
               <Padding height={20} />
-              <Button
-                style={[s.button, {backgroundColor: c.potentia_orange}]}
-                textStyle={{fontSize: 16}}
-                text={'Continue as Guest'}
-                onPress={() => navigate('HomePage')}
-              />
+              {c.test_mode && (
+                <Button
+                  style={[s.button, {backgroundColor: c.potentia_orange}]}
+                  textStyle={{fontSize: 16}}
+                  text={'Continue as Guest'}
+                  onPress={() => navigate('HomePage')}
+                />
+              )}
             </View>
           ) : (
             <View style={s.center}>
