@@ -5,8 +5,6 @@ import {c} from '../../constants';
 
 export const s = StyleSheet.create({
   container: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
     backgroundColor: c.bg_color,
   },
@@ -32,10 +30,8 @@ export const s = StyleSheet.create({
     borderColor: '#ecf0f1',
   },
   button: {
-    borderWidth: 0,
     paddingVertical: 30,
     width: windowWidth * 0.8,
-    alignItems: 'center',
-    borderRadius: 8,
+    // borderRadius: 1,
   },
 });

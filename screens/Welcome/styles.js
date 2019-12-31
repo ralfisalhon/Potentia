@@ -21,15 +21,17 @@ export const s = StyleSheet.create({
     flex: 1,
   },
   image2: {
-    width: windowWidth + 10,
-    flex: 1,
+    width: windowWidth,
+    height: windowWidth / 2.75,
+    // backgroundColor: 'blue',
   },
   text: {
     fontFamily: 'Avenir Next',
     color: c.text_color,
+    fontSize: 14,
   },
   title: {
-    fontWeight: '500',
+    fontWeight: '600',
     textAlign: 'left',
     fontSize: 24,
   },
@@ -53,5 +55,21 @@ export const s = StyleSheet.create({
   bottom_dots: {
     flex: 1,
     justifyContent: 'flex-end',
+    // backgroundColor: 'red',
+  },
+  mini_square: {
+    height: 14,
+    width: 14,
+    borderWidth: 1,
+    borderRadius: 2,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'visible',
+    marginBottom: 2,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

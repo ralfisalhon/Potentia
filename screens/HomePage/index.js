@@ -30,9 +30,7 @@ export class HomePage extends React.Component {
             <Image style={s.image} resizeMode={'contain'} source={c.logo_uri} />
           </View>
         </View>
-        <Padding height={20} />
-        <View style={s.line} />
-        <Padding height={20} />
+        <Padding height={30} />
         <View style={s.center}></View>
         <View style={s.center}>
           <Button

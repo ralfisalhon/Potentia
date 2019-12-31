@@ -30,6 +30,7 @@ export class Welcome extends React.Component {
       username: null,
       password: null,
       loggingIn: false,
+      rememberMe: false,
     };
   }
 
@@ -53,12 +54,16 @@ export class Welcome extends React.Component {
       );
       this.setState({loggingIn: true});
       setTimeout(() => {
-        this.setState({loggingIn: false});
+        // this.setState({loggingIn: false});
         this.props.navigation.navigate('HomePage');
       }, 500);
     } else {
       alert('Please enter your username and password!');
     }
+  };
+
+  forgotPassword = () => {
+    alert('Unimplemented');
   };
 
   render() {
@@ -76,7 +81,6 @@ export class Welcome extends React.Component {
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Welcome!</Text>
         </View>
-
         <Padding height={20} />
         <View style={s.center}>
           <Input
@@ -95,9 +99,35 @@ export class Welcome extends React.Component {
             password={true}
           />
           <Padding height={20} />
-
           {!this.state.loggingIn ? (
             <View style={s.center}>
+              <View style={[s.row, {width: windowWidth * 0.7}]}>
+                <TouchableOpacity
+                  style={s.row}
+                  onPress={() =>
+                    this.setState({rememberMe: !this.state.rememberMe})
+                  }>
+                  <View
+                    style={[
+                      s.mini_square,
+                      {
+                        backgroundColor: this.state.rememberMe
+                          ? c.button_blue
+                          : c.bg_color,
+                      },
+                    ]}
+                  />
+
+                  <Padding width={5} />
+
+                  <Text style={s.text}>Remember Me</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => this.forgotPassword()}>
+                  <Text style={s.text}>Forgot Password?</Text>
+                </TouchableOpacity>
+              </View>
+              <Padding height={20} />
               <Button
                 style={s.button}
                 text={'Login'}
@@ -130,7 +160,7 @@ export class Welcome extends React.Component {
         <View style={s.bottom_dots}>
           <Image
             style={s.image2}
-            resizeMode={'contain'}
+            resizeMode={'stretch'}
             source={c.bottom_dots_uri}
           />
         </View>
