@@ -30,6 +30,9 @@ export const s = StyleSheet.create({
     color: c.text_color,
     fontSize: 14,
   },
+  small_text: {
+    fontSize: 12,
+  },
   title: {
     fontWeight: '600',
     textAlign: 'left',
@@ -47,7 +50,7 @@ export const s = StyleSheet.create({
     fontWeight: '500',
   },
   input: {
-    width: windowWidth * 0.75,
+    width: windowWidth * 0.7,
   },
   button: {
     width: windowWidth * 0.5,

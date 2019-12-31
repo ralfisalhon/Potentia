@@ -34,6 +34,7 @@ class Input extends Component {
       fontWeight: '600',
       borderRadius: 100,
       borderWidth: 1,
+      borderColor: 'gray',
     };
 
     return (

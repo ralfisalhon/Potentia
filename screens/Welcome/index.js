@@ -66,6 +66,15 @@ export class Welcome extends React.Component {
     alert('Unimplemented');
   };
 
+  getRememberStyle = () => {
+    return [
+      s.mini_square,
+      {
+        backgroundColor: this.state.rememberMe ? c.button_blue : c.bg_color,
+      },
+    ];
+  };
+
   render() {
     const {navigate} = this.props.navigation;
 
@@ -101,30 +110,19 @@ export class Welcome extends React.Component {
           <Padding height={20} />
           {!this.state.loggingIn ? (
             <View style={s.center}>
-              <View style={[s.row, {width: windowWidth * 0.7}]}>
+              <View style={[s.row, {width: windowWidth * 0.65}]}>
                 <TouchableOpacity
                   style={s.row}
                   onPress={() =>
                     this.setState({rememberMe: !this.state.rememberMe})
                   }>
-                  <View
-                    style={[
-                      s.mini_square,
-                      {
-                        backgroundColor: this.state.rememberMe
-                          ? c.button_blue
-                          : c.bg_color,
-                      },
-                    ]}
-                  />
-
+                  <View style={this.getRememberStyle()} />
                   <Padding width={5} />
-
-                  <Text style={s.text}>Remember Me</Text>
+                  <Text style={[s.text, s.small_text]}>Remember Me</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => this.forgotPassword()}>
-                  <Text style={s.text}>Forgot Password?</Text>
+                  <Text style={[s.text, s.small_text]}>Forgot Password?</Text>
                 </TouchableOpacity>
               </View>
               <Padding height={20} />
