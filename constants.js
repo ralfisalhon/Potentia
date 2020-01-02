@@ -1,9 +1,15 @@
 export const c = {
-  test_mode: true,
+  test_mode: false,
   logo_uri: require('./assets/images/potentia_logo.png'),
   bottom_dots_uri: require('./assets/images/bottom_dots_720_260.png'),
   text_color: '#3d3e3d',
   bg_color: '#ffffff',
   button_blue: '#1b5df6',
   potentia_orange: '#f3a93b',
+  icon_gray: '#bdbdbd',
+  selected_icon_color: '#005fff',
+  home_uri: require('./assets/images/Home.png'),
+  classes_uri: require('./assets/images/Classes.png'),
+  events_uri: require('./assets/images/Events.png'),
+  profile_uri: require('./assets/images/Profile.png'),
 };

@@ -12,18 +12,13 @@ export const s = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    height: windowHeight * 0.15,
+    height: windowHeight * 0.14,
     width: windowWidth * 0.75,
   },
   image: {
     height: undefined,
     width: undefined,
     flex: 1,
-  },
-  image2: {
-    width: windowWidth,
-    height: windowWidth / 2.75,
-    // backgroundColor: 'blue',
   },
   text: {
     fontFamily: 'Avenir Next',
@@ -54,11 +49,6 @@ export const s = StyleSheet.create({
   },
   button: {
     width: windowWidth * 0.5,
-  },
-  bottom_dots: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    // backgroundColor: 'red',
   },
   mini_square: {
     height: 14,

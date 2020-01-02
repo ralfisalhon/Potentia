@@ -7,7 +7,7 @@ import {c} from '../../constants';
 
 import {Padding} from '../../assets/components/Padding';
 
-export class HomePage extends React.Component {
+export class Home extends React.Component {
   static navigationOptions = {
     header: null,
   };

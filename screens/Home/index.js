@@ -7,8 +7,9 @@ import {c} from '../../constants';
 
 import {Padding} from '../../assets/components/Padding';
 import {Button} from '../../assets/components/Button';
+import {NavBar} from '../../assets/components/NavBar';
 
-export class HomePage extends React.Component {
+export class Home extends React.Component {
   static navigationOptions = {
     header: null,
     gesturesEnabled: false,
@@ -51,6 +52,7 @@ export class HomePage extends React.Component {
             onPress={() => navigate('Progress')}
           />
         </View>
+        <NavBar />
       </SafeAreaView>
     );
   }

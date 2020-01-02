@@ -1,7 +1,7 @@
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 var {Welcome} = require('./screens/Welcome/index');
-var {HomePage} = require('./screens/HomePage/index');
+var {Home} = require('./screens/Home/index');
 var {Classes} = require('./screens/Classes/index');
 var {Tools} = require('./screens/Tools/index');
 var {Progress} = require('./screens/Progress/index');
@@ -11,7 +11,7 @@ console.disableYellowBox = true;
 
 const MainNavigator = createStackNavigator({
   Welcome: {screen: Welcome},
-  HomePage: {screen: HomePage},
+  Home: {screen: Home},
   Classes: {screen: Classes},
   Tools: {screen: Tools},
   Progress: {screen: Progress},
