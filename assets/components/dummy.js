@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import React, {Component} from 'react';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const { width: windowWidth } = Dimensions.get("window");
-const isSmallDevice = windowWidth < 350 ? true : false;
+const {width: windowWidth} = Dimensions.get('window');
 
 class Welcome extends Component {
   static defaultProps = {};
@@ -10,26 +9,19 @@ class Welcome extends Component {
   render() {
     const {} = this.props;
 
-    return (
-      <View style={styles.textContainer}>
-        <Text style={[human.largeTitle#ecf0f1, styles.title]}>Meet Jamblr,</Text>
-        <Text style={[human.title3#ecf0f1, styles.subtitle]}>
-          Your Music Discovery &{"\n"}Playlist Creation Assistant
-        </Text>
-      </View>
-    );
+    return <View style={styles.container}></View>;
   }
 }
 
 const styles = StyleSheet.create({
-  card: {
-    borderWidth: 2,
-    borderRadius: 10,
-    padding: 8,
-    shadowOffset: { width: 1, height: 1 },
-    shadowColor: "gray",
-    shadowOpacity: 0.1
-  }
+  container: {
+    height: 20,
+    width: 20,
+    backgroundColor: 'red',
+  },
+  center: {
+    alignItems: 'center',
+  },
 });
 
-export { Welcome };
+export {Welcome};

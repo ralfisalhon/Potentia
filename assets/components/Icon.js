@@ -19,7 +19,7 @@ class Icon extends Component {
   };
 
   render() {
-    const {logo_uri, text, selected} = this.props;
+    const {logo_uri, text, selected, onPress} = this.props;
 
     return (
       <View>
@@ -28,6 +28,7 @@ class Icon extends Component {
             styles.icon,
             selected && {backgroundColor: c.selected_icon_color},
           ]}
+          onPress={onPress}
           activeOpacity={0.5}>
           <Image
             style={styles.image}

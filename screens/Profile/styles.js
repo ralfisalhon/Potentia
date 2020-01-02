@@ -22,6 +22,11 @@ export const s = StyleSheet.create({
   text: {
     fontFamily: 'Avenir Next',
   },
+  title: {
+    fontWeight: '600',
+    textAlign: 'left',
+    fontSize: 22,
+  },
   line: {
     height: 2,
     width: windowWidth,
