@@ -10,10 +10,10 @@ import {Button} from '../../assets/components/Button';
 import {NavBar} from '../../assets/components/NavBar';
 import {TopLogo} from '../../assets/components/TopLogo';
 
-export class Events extends React.Component {
+export class Settings extends React.Component {
   static navigationOptions = {
     header: null,
-    gesturesEnabled: false,
+    // gesturesEnabled: false,
   };
 
   constructor() {
@@ -26,12 +26,11 @@ export class Events extends React.Component {
 
     return (
       <SafeAreaView style={s.container}>
-        <TopLogo navigate={navigate} />
+        <TopLogo settings={false} />
         <Padding height={15} />
         <View style={s.center}>
-          <Text style={[s.text, s.title]}>Events</Text>
+          <Text style={[s.text, s.title]}>Settings</Text>
         </View>
-        <NavBar selected="Events" navigate={navigate} />
       </SafeAreaView>
     );
   }

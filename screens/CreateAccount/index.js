@@ -1,15 +1,19 @@
 import React from 'react';
-import {View, Dimensions, Image, SafeAreaView, Text} from 'react-native';
+import {View, Dimensions, SafeAreaView, Text} from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
 import {s} from './styles';
 import {c} from '../../constants';
 
 import {Padding} from '../../assets/components/Padding';
+import {Button} from '../../assets/components/Button';
+import {NavBar} from '../../assets/components/NavBar';
+import {TopLogo} from '../../assets/components/TopLogo';
 
 export class CreateAccount extends React.Component {
   static navigationOptions = {
     header: null,
+    // gesturesEnabled: false,
   };
 
   constructor() {
@@ -22,17 +26,10 @@ export class CreateAccount extends React.Component {
 
     return (
       <SafeAreaView style={s.container}>
-        <Padding height={20} />
+        <TopLogo settings={false} />
+        <Padding height={15} />
         <View style={s.center}>
-          <View style={s.logo}>
-            <Image style={s.image} resizeMode={'contain'} source={c.logo_uri} />
-          </View>
-        </View>
-        <Padding height={20} />
-        <View style={s.line} />
-        <Padding height={20} />
-        <View style={s.center}>
-          <Text>Create Account</Text>
+          <Text style={[s.text, s.title]}>CreateAccount</Text>
         </View>
       </SafeAreaView>
     );

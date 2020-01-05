@@ -26,7 +26,7 @@ export class Home extends React.Component {
 
     return (
       <SafeAreaView style={s.container}>
-        <TopLogo />
+        <TopLogo navigate={navigate} />
         <Padding height={15} />
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Home</Text>

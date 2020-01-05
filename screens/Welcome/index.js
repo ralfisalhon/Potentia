@@ -64,7 +64,7 @@ export class Welcome extends React.Component {
   };
 
   forgotPassword = () => {
-    alert('Unimplemented');
+    this.props.navigation.navigate('ForgotPassword');
   };
 
   getRememberStyle = () => {

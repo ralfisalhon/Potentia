@@ -1,6 +1,7 @@
 export const c = {
   test_mode: false,
   logo_uri: require('./assets/images/potentia_logo.png'),
+  stripped_logo_uri: require('./assets/images/potentia_logo_stripped.png'),
   bottom_dots_uri: require('./assets/images/bottom_dots_720_260.png'),
   text_color: '#3d3e3d',
   bg_color: '#ffffff',
@@ -12,4 +13,6 @@ export const c = {
   classes_uri: require('./assets/images/Classes.png'),
   events_uri: require('./assets/images/Events.png'),
   profile_uri: require('./assets/images/Profile.png'),
+  settings_uri: require('./assets/images/Settings.png'),
+  backButton_uri: require('./assets/images/backButton.png'),
 };

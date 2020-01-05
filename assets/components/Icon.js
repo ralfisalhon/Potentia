@@ -46,8 +46,8 @@ class Icon extends Component {
 
 const styles = StyleSheet.create({
   icon: {
-    height: windowWidth / 5.5,
-    width: windowWidth / 5.5,
+    height: windowWidth / 5.8,
+    width: windowWidth / 5.8,
     backgroundColor: c.icon_gray,
     borderRadius: 10,
     padding: 10,
