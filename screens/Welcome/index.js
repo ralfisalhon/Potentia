@@ -39,7 +39,35 @@ export class Welcome extends React.Component {
     };
 
     this.configurePushNotifications();
+    // this.attemptFakeLogin();
   }
+
+  logIn = async (username, password) => {
+    this.setState({loggingIn: true});
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = e => {
+      if (xhr.readyState !== 4) return;
+      console.warn(
+        'logIn | Status:',
+        xhr.status,
+        '| responseText:',
+        xhr.responseText,
+      );
+      if (xhr.status == 200) {
+        // var data = xhr.responseText;
+        // var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+        this.setState({loggingIn: false});
+        this.props.navigation.navigate('Classes');
+      } else {
+        console.warn('Oopsie doosie', xhr.readyState);
+        this.setState({loggingIn: false});
+      }
+    };
+
+    xhr.open('POST', 'https://potentia-server.herokuapp.com/signup');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send('username=' + username + '&password=' + password);
+  };
 
   configurePushNotifications = () => {
     let that = this;
@@ -86,8 +114,6 @@ export class Welcome extends React.Component {
     });
   };
 
-  componentDidMount() {}
-
   updateField = (field, text) => {
     if (field == 'username') {
       this.setState({username: text});
@@ -96,23 +122,23 @@ export class Welcome extends React.Component {
     }
   };
 
-  logIn = (username, password) => {
-    if (username && password && username.length > 0 && password.length > 0) {
-      console.warn(
-        'Simulating 200 login with',
-        username,
-        password,
-        'in 0.5 seconds',
-      );
-      this.setState({loggingIn: true});
-      setTimeout(() => {
-        // this.setState({loggingIn: false});
-        this.props.navigation.navigate('Classes');
-      }, 500);
-    } else {
-      alert('Please enter your username and password!');
-    }
-  };
+  // logIn = (username, password) => {
+  //   if (username && password && username.length > 0 && password.length > 0) {
+  //     console.warn(
+  //       'Simulating 200 login with',
+  //       username,
+  //       password,
+  //       'in 0.5 seconds',
+  //     );
+  //     this.setState({loggingIn: true});
+  //     setTimeout(() => {
+  //       // this.setState({loggingIn: false});
+  //       this.props.navigation.navigate('Classes');
+  //     }, 500);
+  //   } else {
+  //     alert('Please enter your username and password!');
+  //   }
+  // };
 
   forgotPassword = () => {
     this.props.navigation.navigate('ForgotPassword');

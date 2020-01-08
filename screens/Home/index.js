@@ -13,7 +13,7 @@ import {TopLogo} from '../../assets/components/TopLogo';
 export class Home extends React.Component {
   static navigationOptions = {
     header: null,
-    gesturesEnabled: false,
+    gesturesEnabled: c.test_mode,
   };
 
   constructor() {

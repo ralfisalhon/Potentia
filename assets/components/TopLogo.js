@@ -30,7 +30,7 @@ class TopLogo extends Component {
             <Image
               style={styles.image}
               resizeMode={'contain'}
-              // source={c.backButton_uri}
+              source={{uri: 'https://blank.com'}}
             />
           </View>
         </TouchableOpacity>
@@ -53,7 +53,7 @@ class TopLogo extends Component {
             <Image
               style={styles.image}
               resizeMode={'contain'}
-              source={settings && c.settings_uri}
+              source={settings ? c.settings_uri : {uri: 'https://blank.com'}}
             />
           </View>
         </TouchableOpacity>
