@@ -30,6 +30,8 @@ export class Home extends React.Component {
         <Padding height={15} />
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Home</Text>
+          <Text style={s.text}>Upcoming classes</Text>
+          <Text style={s.text}>Most recent event?</Text>
         </View>
         <NavBar selected="Home" navigate={navigate} />
       </SafeAreaView>

@@ -29,7 +29,7 @@ export class CreateAccount extends React.Component {
         <TopLogo settings={false} />
         <Padding height={15} />
         <View style={s.center}>
-          <Text style={[s.text, s.title]}>CreateAccount</Text>
+          <Text style={[s.text, s.title]}>Create New Account</Text>
         </View>
       </SafeAreaView>
     );
