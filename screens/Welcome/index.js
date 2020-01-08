@@ -7,9 +7,9 @@ import {
   Image,
   SafeAreaView,
   TextInput,
+  Alert,
 } from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
-import {human} from 'react-native-typography';
 
 import {s} from './styles';
 import {c} from '../../constants';
@@ -18,7 +18,10 @@ import {Padding} from '../../assets/components/Padding';
 import {Input} from '../../assets/components/Input';
 import {Button} from '../../assets/components/Button';
 import {BottomDots} from '../../assets/components/BottomDots';
-/* <Padding height={50} /> */
+
+var PushNotification = require('react-native-push-notification');
+
+console.log("I'm here");
 
 export class Welcome extends React.Component {
   static navigationOptions = {
@@ -32,8 +35,56 @@ export class Welcome extends React.Component {
       password: null,
       loggingIn: false,
       rememberMe: false,
+      pushToken: 'Simulator_Or_Not_Allowed',
     };
+
+    this.configurePushNotifications();
   }
+
+  configurePushNotifications = () => {
+    let that = this;
+    PushNotification.configure({
+      // (optional) Called when Token is generated (iOS and Android)
+      onRegister: function(token) {
+        if (token?.token) {
+          that.setState({pushToken: token.token});
+        }
+        // console.warn('pushToken:', this.state.pushToken);
+        console.warn('token:', token);
+      },
+
+      // (required) Called when a remote or local notification is opened or received
+      onNotification: function(notification) {
+        console.warn('NOTIFICATION:', notification);
+
+        // process the notification
+
+        // required on iOS only (see fetchCompletionHandler docs: https://github.com/react-native-community/react-native-push-notification-ios)
+        notification.finish(PushNotificationIOS.FetchResult.NoData);
+      },
+
+      // ANDROID ONLY: GCM or FCM Sender ID (product_number) (optional - not required for local notifications, but is need to receive remote push notifications)
+      senderID: 'YOUR GCM (OR FCM) SENDER ID',
+
+      // IOS ONLY (optional): default: all - Permissions to register.
+      permissions: {
+        alert: true,
+        badge: true,
+        sound: true,
+      },
+
+      // Should the initial notification be popped automatically
+      // default: true
+      popInitialNotification: true,
+
+      /**
+       * (optional) default: true
+       * - Specified if permissions (ios) and token (android and ios) will requested or not,
+       * - if not, you must call PushNotificationsHandler.requestPermissions() later
+       */
+      requestPermissions: true,
+    });
+  };
 
   componentDidMount() {}
 
@@ -56,7 +107,7 @@ export class Welcome extends React.Component {
       this.setState({loggingIn: true});
       setTimeout(() => {
         // this.setState({loggingIn: false});
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Classes');
       }, 500);
     } else {
       alert('Please enter your username and password!');
@@ -81,8 +132,15 @@ export class Welcome extends React.Component {
 
     return (
       <SafeAreaView style={s.container}>
-        <Padding height={35} />
         <View style={s.center}>
+          <Padding height={35} />
+          <Text
+            style={[
+              s.text,
+              {fontSize: 10, color: 'red', marginBottom: 15, marginTop: -25},
+            ]}>
+            {c.test_mode && 'Test Mode is Active'}
+          </Text>
           <View style={s.logo}>
             <Image style={s.image} resizeMode={'contain'} source={c.logo_uri} />
           </View>
@@ -90,6 +148,9 @@ export class Welcome extends React.Component {
         <Padding height={30} />
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Welcome!</Text>
+          <Text style={[s.text, {fontSize: 8}]}>
+            {c.test_mode && 'pushToken: ' + this.state.pushToken.substr(0, 25)}
+          </Text>
         </View>
         <Padding height={20} />
         <View style={s.center}>
@@ -140,14 +201,17 @@ export class Welcome extends React.Component {
                 onPress={() => navigate('CreateAccount')}>
                 Create New Account
               </Text>
-              <Padding height={20} />
+
               {c.test_mode && (
-                <Button
-                  style={[s.button, {backgroundColor: c.potentia_orange}]}
-                  textStyle={{fontSize: 16}}
-                  text={'Continue as Guest'}
-                  onPress={() => navigate('Home')}
-                />
+                <View style={{zIndex: 100}}>
+                  <Padding height={10} />
+                  <Button
+                    style={[s.button, {backgroundColor: c.potentia_orange}]}
+                    textStyle={{fontSize: 16}}
+                    text={'Continue as Guest'}
+                    onPress={() => navigate('Classes')}
+                  />
+                </View>
               )}
             </View>
           ) : (

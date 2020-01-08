@@ -9,7 +9,7 @@ const {CreateAccount} = require('./screens/CreateAccount/index');
 const {ForgotPassword} = require('./screens/ForgotPassword/index');
 const {Settings} = require('./screens/Settings/index');
 
-console.disableYellowBox = true;
+// console.disableYellowBox = true;
 
 const MainNavigator = createStackNavigator({
   Welcome: {screen: Welcome},
