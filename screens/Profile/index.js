@@ -42,7 +42,7 @@ export class Profile extends React.Component {
             <Image
               style={s.image}
               resizeMode={'contain'}
-              source={{uri: 'http://placehold.it/256'}}
+              source={c.avatar_uri}
             />
           </View>
           <Padding height={10} />

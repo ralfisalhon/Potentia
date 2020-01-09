@@ -5,8 +5,6 @@ import {c} from '../../constants';
 
 export const s = StyleSheet.create({
   container: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
     backgroundColor: c.bg_color,
   },
@@ -31,17 +29,44 @@ export const s = StyleSheet.create({
     textAlign: 'left',
     fontSize: 22,
   },
-  line: {
-    height: 2,
-    width: windowWidth,
-    borderWidth: 1,
-    borderColor: 'gray',
+  three_bars: {
+    width: windowWidth * 0.9,
+    height: 8,
+    flexDirection: 'row',
   },
-  button: {
-    borderWidth: 1,
-    paddingVertical: 30,
-    width: windowWidth * 0.8,
-    alignItems: 'center',
-    borderRadius: 8,
+  filled_bar: {
+    flex: 1,
+    backgroundColor: c.potentia_orange,
+    borderRadius: 10,
+    marginHorizontal: 2,
+  },
+  unfilled_bar: {
+    flex: 1,
+    backgroundColor: c.icon_gray,
+    borderRadius: 10,
+    marginHorizontal: 2,
+  },
+  image: {
+    height: undefined,
+    width: undefined,
+    flex: 1,
+    borderRadius: 15,
+  },
+  profilePic: {
+    height: windowWidth / 4.5,
+    width: windowWidth / 4.5,
+  },
+  edit: {
+    color: c.button_blue,
+    fontWeight: '500',
+    fontSize: 14,
+  },
+  input: {
+    width: windowWidth * 0.7,
+    height: 40,
+  },
+  next: {
+    width: windowWidth * 0.5,
+    paddingVertical: 8,
   },
 });

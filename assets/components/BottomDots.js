@@ -5,15 +5,14 @@ const {width: windowWidth} = Dimensions.get('window');
 
 class BottomDots extends Component {
   static defaultProps = {
-    height: 0,
-    width: 0,
+    opacity: 1,
   };
 
   render() {
-    const {height, width} = this.props;
+    const {opacity} = this.props;
 
     return (
-      <View style={{flex: 1, justifyContent: 'flex-end'}}>
+      <View style={{flex: 1, justifyContent: 'flex-end', opacity}}>
         <Image
           style={{width: windowWidth, height: windowWidth / 2.75}}
           resizeMode={'stretch'}

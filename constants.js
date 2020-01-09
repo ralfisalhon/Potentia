@@ -15,4 +15,5 @@ export const c = {
   profile_uri: require('./assets/images/Profile.png'),
   settings_uri: require('./assets/images/Settings.png'),
   backButton_uri: require('./assets/images/backButton.png'),
+  avatar_uri: require('./assets/images/placeholder_avatar.png'),
 };
