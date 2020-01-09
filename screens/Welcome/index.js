@@ -216,7 +216,7 @@ export class Welcome extends React.Component {
               <Padding height={20} />
               <Button
                 style={s.button}
-                text={'Login'}
+                text={'Log In'}
                 onPress={() =>
                   this.logIn(this.state.username, this.state.password)
                 }

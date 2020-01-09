@@ -18,8 +18,18 @@ export class Settings extends React.Component {
 
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      notificationsAllowed: true,
+    };
   }
+
+  changeNotificationState = () => {
+    this.setState({notificationsAllowed: !this.state.notificationsAllowed});
+  };
+
+  logout = navigate => {
+    navigate('Welcome');
+  };
 
   render() {
     const {navigate} = this.props.navigation;
@@ -30,6 +40,24 @@ export class Settings extends React.Component {
         <Padding height={15} />
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Settings</Text>
+          <Padding height={20} />
+          <Button
+            textStyle={{fontSize: 16}}
+            style={[s.button, {backgroundColor: c.potentia_orange}]}
+            text={
+              this.state.notificationsAllowed
+                ? 'Notifications: Allowed'
+                : 'Notifications: Not Allowed'
+            }
+            onPress={() => this.changeNotificationState()}
+          />
+          <Padding height={20} />
+          <Button
+            textStyle={{fontSize: 16}}
+            style={s.button}
+            text={'Log Out'}
+            onPress={() => this.logout(navigate)}
+          />
         </View>
       </SafeAreaView>
     );
