@@ -11,7 +11,7 @@ import {TopLogo} from '../../assets/components/TopLogo';
 import {Button} from '../../assets/components/Button';
 import {BottomDots} from '../../assets/components/BottomDots';
 
-export class CreateAccount extends React.Component {
+export class CreateAccount_2 extends React.Component {
   static navigationOptions = {
     header: null,
     // gesturesEnabled: false,
@@ -47,7 +47,7 @@ export class CreateAccount extends React.Component {
           <Padding height={8} />
           <View style={s.three_bars}>
             <View style={s.filled_bar} />
-            <View style={s.unfilled_bar} />
+            <View style={s.filled_bar} />
             <View style={s.unfilled_bar} />
           </View>
           <Padding height={12} />
@@ -62,7 +62,7 @@ export class CreateAccount extends React.Component {
           <Text style={[s.text, s.edit]}>Edit</Text>
           <Padding height={12} />
           <Input
-            placeholder={'First Name'}
+            placeholder={'Student / Tutor'}
             value={this.state.person.first_name}
             style={[s.text, s.input]}
             onChange={text => this.updateField('first_name', text)}
@@ -70,7 +70,7 @@ export class CreateAccount extends React.Component {
           />
           <Padding height={15} />
           <Input
-            placeholder={'Last Name'}
+            placeholder={'School'}
             value={this.state.person.last_name}
             style={[s.text, s.input]}
             onChange={text => this.updateField('last_name', text)}
@@ -78,7 +78,7 @@ export class CreateAccount extends React.Component {
           />
           <Padding height={15} />
           <Input
-            placeholder={'Birthday'}
+            placeholder={'Major'}
             value={this.state.person.birthday}
             style={[s.text, s.input]}
             onChange={text => this.updateField('birthday', text)}
@@ -86,7 +86,7 @@ export class CreateAccount extends React.Component {
           />
           <Padding height={15} />
           <Input
-            placeholder={'Email / Phone Number'}
+            placeholder={'Graduation Year'}
             value={this.state.person.email_phone}
             style={[s.text, s.input]}
             onChange={text => this.updateField('email_phone', text)}
@@ -97,7 +97,7 @@ export class CreateAccount extends React.Component {
             style={s.next}
             text={'Next'}
             onPress={() =>
-              navigate('CreateAccount_2', {person: this.state.person})
+              navigate('CreateAccount_3', {person: this.state.person})
             }
           />
         </View>

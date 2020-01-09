@@ -12,7 +12,8 @@ class BottomDots extends Component {
     const {opacity} = this.props;
 
     return (
-      <View style={{flex: 1, justifyContent: 'flex-end', opacity}}>
+      <View
+        style={{flex: 1, justifyContent: 'flex-end', opacity, zIndex: -100}}>
         <Image
           style={{width: windowWidth, height: windowWidth / 2.75}}
           resizeMode={'stretch'}
