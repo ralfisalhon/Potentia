@@ -6,8 +6,6 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
-  TextInput,
-  Alert,
 } from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
@@ -39,7 +37,6 @@ export class Welcome extends React.Component {
     };
 
     this.configurePushNotifications();
-    // this.attemptFakeLogin();
   }
 
   logIn = async (username, password) => {
@@ -64,7 +61,7 @@ export class Welcome extends React.Component {
       }
     };
 
-    xhr.open('POST', 'https://potentia-server.herokuapp.com/signup');
+    xhr.open('POST', 'https://potentia-server.herokuapp.com/login');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send('username=' + username + '&password=' + password);
   };
