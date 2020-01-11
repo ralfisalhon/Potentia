@@ -17,7 +17,7 @@ export class Classes extends React.Component {
   constructor() {
     super();
     this.state = {
-      response: 'Fetching /myclasses',
+      response: 'Fetching /courses',
     };
 
     this.getClasses();
@@ -43,10 +43,38 @@ export class Classes extends React.Component {
       this.setState({response: xhr.responseText});
     };
 
-    xhr.open('POST', 'https://potentia-server.herokuapp.com/myclasses');
+    xhr.open('GET', 'https://potentia-server.herokuapp.com/courses');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('username=' + 'username' + '&password=' + 'password');
+    xhr.send();
   };
+
+  // SAMPLE GET
+  // getClasses = async () => {
+  //   let xhr = new XMLHttpRequest();
+  //   xhr.onreadystatechange = e => {
+  //     if (xhr.readyState !== 4) return;
+  //     console.warn(
+  //       'getClasses | Status:',
+  //       xhr.status,
+  //       '| responseText:',
+  //       xhr.responseText,
+  //     );
+  //     if (xhr.status == 200) {
+  //       // var data = xhr.responseText;
+  //       // var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+  //       this.props.navigation.navigate('Classes');
+  //     } else {
+  //       // console.warn('Status not 200', xhr.responseText);
+  //     }
+  //     this.setState({response: xhr.responseText});
+  //   };
+
+  //   xhr.open('GET', 'https://potentia-server.herokuapp.com/myclasses');
+  //   // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  //   xhr.setRequestHeader('Accept', 'application/json');
+  //   xhr.setRequestHeader('Content-Type', 'application/json');
+  //   xhr.send();
+  // };
 
   render() {
     const {navigate} = this.props.navigation;

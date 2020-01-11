@@ -29,7 +29,7 @@ export class Welcome extends React.Component {
   constructor() {
     super();
     this.state = {
-      username: null,
+      email: null,
       password: null,
       loggingIn: false,
       rememberMe: false,
@@ -39,7 +39,13 @@ export class Welcome extends React.Component {
     this.configurePushNotifications();
   }
 
-  logIn = async (username, password) => {
+  logIn = async () => {
+    const {email, password} = this.state;
+
+    if (!email || !password || email.length < 6 || password.length < 6) {
+      return;
+    }
+
     this.setState({loggingIn: true});
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = e => {
@@ -63,7 +69,7 @@ export class Welcome extends React.Component {
 
     xhr.open('POST', 'https://potentia-server.herokuapp.com/login');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send('username=' + username + '&password=' + password);
+    xhr.send('email=' + email + '&password=' + password);
   };
 
   configurePushNotifications = () => {
@@ -112,30 +118,12 @@ export class Welcome extends React.Component {
   };
 
   updateField = (field, text) => {
-    if (field == 'username') {
-      this.setState({username: text});
+    if (field == 'email') {
+      this.setState({email: text});
     } else if (field == 'password') {
       this.setState({password: text});
     }
   };
-
-  // logIn = (username, password) => {
-  //   if (username && password && username.length > 0 && password.length > 0) {
-  //     console.warn(
-  //       'Simulating 200 login with',
-  //       username,
-  //       password,
-  //       'in 0.5 seconds',
-  //     );
-  //     this.setState({loggingIn: true});
-  //     setTimeout(() => {
-  //       // this.setState({loggingIn: false});
-  //       this.props.navigation.navigate('Classes');
-  //     }, 500);
-  //   } else {
-  //     alert('Please enter your username and password!');
-  //   }
-  // };
 
   forgotPassword = () => {
     this.props.navigation.navigate('ForgotPassword');
@@ -178,10 +166,10 @@ export class Welcome extends React.Component {
         <Padding height={20} />
         <View style={s.center}>
           <Input
-            placeholder={'Email / Phone Number'}
-            value={this.state.username}
+            placeholder={'Email'}
+            value={this.state.email}
             style={[s.text, s.input]}
-            onChange={text => this.updateField('username', text)}
+            onChange={text => this.updateField('email', text)}
             maxLength={30}
           />
           <Padding height={10} />
@@ -214,9 +202,7 @@ export class Welcome extends React.Component {
               <Button
                 style={s.button}
                 text={'Log In'}
-                onPress={() =>
-                  this.logIn(this.state.username, this.state.password)
-                }
+                onPress={() => this.logIn()}
               />
               <Padding height={10} />
               <Text

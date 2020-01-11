@@ -21,18 +21,65 @@ export class CreateAccount_3 extends React.Component {
     super();
     this.state = {
       person: {
-        first_name: null,
-        last_name: null,
-        birthday: null,
-        email_phone: null,
+        first_name: 'Ralfi',
+        last_name: 'Salhon',
+        email: 'ralfisalhon@gmail.com',
+        phone_num: '8575235290',
+        major: 'CS',
+        password: '12345678',
+        dob: '06/12/97',
+        user_type: 'Tutor',
       },
     };
+
+    this.signUp();
   }
 
   updateField = (field, text) => {
     let new_person = this.state.person;
     new_person[field] = text;
     this.setState({person: new_person});
+  };
+
+  signUp = async () => {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = e => {
+      if (xhr.readyState !== 4) return;
+      console.warn(
+        'signUp | Status:',
+        xhr.status,
+        '| responseText:',
+        xhr.responseText,
+      );
+      if (xhr.status == 200) {
+        // var data = xhr.responseText;
+        // var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+        this.props.navigation.navigate('Classes');
+      } else {
+        // console.warn('Could not get classes', xhr.status);
+      }
+    };
+
+    xhr.open('POST', 'https://potentia-server.herokuapp.com/signup');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send(
+      'first_name=' +
+        this.state.first_name +
+        '&last_name=' +
+        this.state.last_name +
+        '&email=' +
+        this.state.email +
+        '&phone_num=' +
+        this.state.phone_num +
+        '&major=' +
+        this.state.major +
+        '&password=' +
+        this.state.password +
+        '&user_type=' +
+        this.state.user_type +
+        '&dob=' +
+        this.state.dob,
+    );
   };
 
   render() {
