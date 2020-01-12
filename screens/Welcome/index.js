@@ -43,6 +43,7 @@ export class Welcome extends React.Component {
     const {email, password} = this.state;
 
     if (!email || !password || email.length < 6 || password.length < 6) {
+      alert('Please enter your email and password');
       return;
     }
 
@@ -57,8 +58,10 @@ export class Welcome extends React.Component {
         xhr.responseText,
       );
       if (xhr.status == 200) {
-        // var data = xhr.responseText;
-        // var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+        var data = xhr.responseText;
+        var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+        const {iat, exp, token} = obj;
+        console.warn(iat, exp, token);
         this.setState({loggingIn: false});
         this.props.navigation.navigate('Classes');
       } else {
