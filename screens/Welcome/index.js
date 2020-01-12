@@ -17,6 +17,8 @@ import {Input} from '../../assets/components/Input';
 import {Button} from '../../assets/components/Button';
 import {BottomDots} from '../../assets/components/BottomDots';
 
+import DefaultPreference from 'react-native-default-preference';
+
 var PushNotification = require('react-native-push-notification');
 
 console.log("I'm here");
@@ -32,11 +34,36 @@ export class Welcome extends React.Component {
       email: null,
       password: null,
       loggingIn: false,
-      rememberMe: false,
+      rememberMe: true,
       pushToken: 'Simulator_Or_Not_Allowed',
     };
 
     this.configurePushNotifications();
+  }
+
+  componentDidMount() {
+    let that = this;
+    this.setState({loggingIn: false});
+    DefaultPreference.get('pushToken').then(function(pushToken) {
+      if (pushToken) {
+        that.setState({pushToken});
+      }
+    });
+
+    DefaultPreference.get('rememberMe').then(function(rememberMe) {
+      console.warn('rememberMe is', rememberMe);
+      if (rememberMe == '0') {
+        that.setState({rememberMe: false});
+      } else if (rememberMe == '1') {
+        that.setState({rememberMe: true});
+        DefaultPreference.get('token').then(function(token) {
+          if (token) {
+            global.globalToken = token;
+            that.props.navigation.navigate('Classes');
+          }
+        });
+      }
+    });
   }
 
   logIn = async () => {
@@ -60,12 +87,17 @@ export class Welcome extends React.Component {
       if (xhr.status == 200) {
         var data = xhr.responseText;
         var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+
         const {iat, exp, token} = obj;
-        console.warn(iat, exp, token);
+        DefaultPreference.set('email', email);
+        DefaultPreference.set('iat', iat);
+        DefaultPreference.set('exp', exp);
+        DefaultPreference.set('token', token);
+
         this.setState({loggingIn: false});
         this.props.navigation.navigate('Classes');
       } else {
-        console.warn('Oopsie doosie', xhr.readyState);
+        console.warn('Something went wrong while logging in:', xhr.readyState);
         this.setState({loggingIn: false});
       }
     };
@@ -83,8 +115,10 @@ export class Welcome extends React.Component {
         if (token?.token) {
           that.setState({pushToken: token.token});
         }
-        // console.warn('pushToken:', this.state.pushToken);
-        console.warn('token:', token);
+
+        DefaultPreference.set('pushToken', token.token).then(function() {
+          // console.warn('pushToken has been set to', value.token);
+        });
       },
 
       // (required) Called when a remote or local notification is opened or received
@@ -141,6 +175,16 @@ export class Welcome extends React.Component {
     ];
   };
 
+  updateRememberMeState = () => {
+    let that = this;
+    this.setState({rememberMe: !this.state.rememberMe}, () => {
+      DefaultPreference.set(
+        'rememberMe',
+        that.state.rememberMe,
+      ).then(function() {});
+    });
+  };
+
   render() {
     const {navigate} = this.props.navigation;
 
@@ -189,9 +233,7 @@ export class Welcome extends React.Component {
               <View style={[s.row, {width: windowWidth * 0.65}]}>
                 <TouchableOpacity
                   style={s.row}
-                  onPress={() =>
-                    this.setState({rememberMe: !this.state.rememberMe})
-                  }>
+                  onPress={() => this.updateRememberMeState()}>
                   <View style={this.getRememberStyle()} />
                   <Padding width={5} />
                   <Text style={[s.text, s.small_text]}>Remember Me</Text>

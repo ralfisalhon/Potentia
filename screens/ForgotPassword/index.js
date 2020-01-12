@@ -50,7 +50,7 @@ export class ForgotPassword extends React.Component {
           <Text style={[s.text, s.title]}>Forgot your password?</Text>
           <Padding height={10} />
           <Input
-            placeholder={'Email / Phone Number'}
+            placeholder={'Email'}
             value={this.state.username}
             style={[s.text, s.input]}
             onChange={text => this.updateField(text)}

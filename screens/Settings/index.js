@@ -10,6 +10,8 @@ import {Button} from '../../assets/components/Button';
 import {NavBar} from '../../assets/components/NavBar';
 import {TopLogo} from '../../assets/components/TopLogo';
 
+import DefaultPreference from 'react-native-default-preference';
+
 export class Settings extends React.Component {
   static navigationOptions = {
     header: null,
@@ -28,7 +30,9 @@ export class Settings extends React.Component {
   };
 
   logout = navigate => {
-    navigate('Welcome');
+    DefaultPreference.set('token', null).then(function() {
+      navigate('Welcome');
+    });
   };
 
   render() {

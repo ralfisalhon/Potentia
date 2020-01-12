@@ -38,7 +38,9 @@
 		2DCD954D1E0B4F2C00145EB5 /* PotentiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* PotentiaTests.m */; };
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		5D1EF5376A0A474F9897E028 /* libRNGestureHandler-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67A94FC4F6A643A18A562CCF /* libRNGestureHandler-tvOS.a */; };
+		70FBFE7AEE444CFEA256EE0E /* libRNDefaultPreference.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84ED1225413F46FCBE0407ED /* libRNDefaultPreference.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		A78953374F8744D2AD54F2E2 /* libRNDefaultPreference-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30E9B6D472DB47798DAE86A7 /* libRNDefaultPreference-tvOS.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B186556622D7D0D90081C5AE /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B186556522D7D0CF0081C5AE /* libRNGestureHandler.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
@@ -333,6 +335,20 @@
 			remoteGlobalIDString = ED296FEE214C9CF800B7C4FE;
 			remoteInfo = "jsiexecutor-tvOS";
 		};
+		B1792C2323CB708700482BCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E5EA600BB0A47F7B10F31FE /* RNDefaultPreference.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNDefaultPreference;
+		};
+		B1792C2523CB708700482BCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0E5EA600BB0A47F7B10F31FE /* RNDefaultPreference.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E67E40820E0844100BC6368;
+			remoteInfo = "RNDefaultPreference-tvOS";
+		};
 		B186556422D7D0CF0081C5AE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B186553B22D7D0CF0081C5AE /* RNGestureHandler.xcodeproj */;
@@ -352,6 +368,7 @@
 		00E356EE1AD99517003FC87E /* PotentiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PotentiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* PotentiaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PotentiaTests.m; sourceTree = "<group>"; };
+		0E5EA600BB0A47F7B10F31FE /* RNDefaultPreference.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDefaultPreference.xcodeproj; path = "../node_modules/react-native-default-preference/ios/RNDefaultPreference.xcodeproj"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Potentia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Potentia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,10 +383,12 @@
 		2D02E47B1E0B4A5D006451C7 /* Potentia-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Potentia-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* Potentia-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Potentia-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		30E9B6D472DB47798DAE86A7 /* libRNDefaultPreference-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNDefaultPreference-tvOS.a"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		67A94FC4F6A643A18A562CCF /* libRNGestureHandler-tvOS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = "libRNGestureHandler-tvOS.a"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		84ED1225413F46FCBE0407ED /* libRNDefaultPreference.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDefaultPreference.a; sourceTree = "<group>"; };
 		98352C6496404EE19117349F /* PushNotificationIOS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = PushNotificationIOS.xcodeproj; path = "../node_modules/@react-native-community/push-notification-ios/ios/PushNotificationIOS.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B14F8A8C23C613A000FF79AB /* Potentia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Potentia.entitlements; path = Potentia/Potentia.entitlements; sourceTree = "<group>"; };
@@ -406,6 +425,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				0EB90774D94547F9912FEEA4 /* libRNCPushNotificationIOS.a in Frameworks */,
+				70FBFE7AEE444CFEA256EE0E /* libRNDefaultPreference.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +443,7 @@
 				2D02E4C71E0B4AEC006451C7 /* libRCTText-tvOS.a in Frameworks */,
 				2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */,
 				5D1EF5376A0A474F9897E028 /* libRNGestureHandler-tvOS.a in Frameworks */,
+				A78953374F8744D2AD54F2E2 /* libRNDefaultPreference-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +620,7 @@
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				98352C6496404EE19117349F /* PushNotificationIOS.xcodeproj */,
+				0E5EA600BB0A47F7B10F31FE /* RNDefaultPreference.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -655,11 +677,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B1792C1F23CB708700482BCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1792C2423CB708700482BCC /* libRNDefaultPreference.a */,
+				B1792C2623CB708700482BCC /* libRNDefaultPreference-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B186550122D7CE330081C5AE /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				67A94FC4F6A643A18A562CCF /* libRNGestureHandler-tvOS.a */,
 				28D4A926A12845A5B000811B /* libRNCPushNotificationIOS.a */,
+				84ED1225413F46FCBE0407ED /* libRNDefaultPreference.a */,
+				30E9B6D472DB47798DAE86A7 /* libRNDefaultPreference-tvOS.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -839,6 +872,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = B1792C1F23CB708700482BCC /* Products */;
+					ProjectRef = 0E5EA600BB0A47F7B10F31FE /* RNDefaultPreference.xcodeproj */;
 				},
 				{
 					ProductGroup = B186553C22D7D0CF0081C5AE /* Products */;
@@ -1129,6 +1166,20 @@
 			remoteRef = B164D1E222D3D87000E5E4FB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		B1792C2423CB708700482BCC /* libRNDefaultPreference.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNDefaultPreference.a;
+			remoteRef = B1792C2323CB708700482BCC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1792C2623CB708700482BCC /* libRNDefaultPreference-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNDefaultPreference-tvOS.a";
+			remoteRef = B1792C2523CB708700482BCC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B186556522D7D0CF0081C5AE /* libRNGestureHandler.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1277,12 +1328,15 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = PotentiaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1303,12 +1357,15 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = PotentiaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1332,6 +1389,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = Potentia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1357,6 +1415,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = Potentia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1387,11 +1446,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = "Potentia-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1421,11 +1483,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = "Potentia-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1454,11 +1519,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = "Potentia-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1487,11 +1555,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/@react-native-community/push-notification-ios/ios",
+					"$(SRCROOT)/../node_modules/react-native-default-preference/ios",
 				);
 				INFOPLIST_FILE = "Potentia-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (

@@ -3,6 +3,7 @@ package com.potentia;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.kevinresol.react_native_default_preference.RNDefaultPreferencePackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.facebook.react.ReactNativeHost;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new RNDefaultPreferencePackage(),
             new ReactNativePushNotificationPackage(), new RNGestureHandlerPackage());
     }
 
