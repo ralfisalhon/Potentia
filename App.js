@@ -1,4 +1,5 @@
 import {createStackNavigator, createAppContainer} from 'react-navigation';
+import {c} from './constants.js';
 
 const {Welcome} = require('./screens/Welcome/index');
 const {Home} = require('./screens/Home/index');
@@ -10,8 +11,10 @@ const {CreateAccount_2} = require('./screens/CreateAccount_2/index');
 const {CreateAccount_3} = require('./screens/CreateAccount_3/index');
 const {ForgotPassword} = require('./screens/ForgotPassword/index');
 const {Settings} = require('./screens/Settings/index');
+const {Cancellation} = require('./screens/Cancellation/index');
+const {Confirmation} = require('./screens/Confirmation/index');
 
-console.disableYellowBox = true;
+console.disableYellowBox = !c.test_mode;
 
 const MainNavigator = createStackNavigator({
   Welcome: {screen: Welcome},
@@ -24,6 +27,8 @@ const MainNavigator = createStackNavigator({
   CreateAccount_3: {screen: CreateAccount_3},
   ForgotPassword: {screen: ForgotPassword},
   Settings: {screen: Settings},
+  Cancellation: {screen: Cancellation},
+  Confirmation: {screen: Confirmation},
 });
 
 const App = createAppContainer(MainNavigator);

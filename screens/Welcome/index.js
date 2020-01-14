@@ -34,7 +34,7 @@ export class Welcome extends React.Component {
       email: null,
       password: null,
       loggingIn: false,
-      rememberMe: true,
+      rememberMe: false,
       pushToken: 'Simulator_Or_Not_Allowed',
     };
 
@@ -51,7 +51,6 @@ export class Welcome extends React.Component {
     });
 
     DefaultPreference.get('rememberMe').then(function(rememberMe) {
-      console.warn('rememberMe is', rememberMe);
       if (rememberMe == '0') {
         that.setState({rememberMe: false});
       } else if (rememberMe == '1') {
@@ -192,11 +191,7 @@ export class Welcome extends React.Component {
       <SafeAreaView style={s.container}>
         <View style={s.center}>
           <Padding height={35} />
-          <Text
-            style={[
-              s.text,
-              {fontSize: 10, color: 'red', marginBottom: 15, marginTop: -25},
-            ]}>
+          <Text style={[s.text, s.test]}>
             {c.test_mode && 'Test Mode is Active'}
           </Text>
           <View style={s.logo}>

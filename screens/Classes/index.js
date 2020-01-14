@@ -36,7 +36,7 @@ export class Classes extends React.Component {
       if (xhr.status == 200) {
         // var data = xhr.responseText;
         // var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
-        this.props.navigation.navigate('Classes');
+        // this.props.navigation.navigate('Classes');
       } else {
         // console.warn('Status not 200', xhr.responseText);
       }
@@ -86,7 +86,19 @@ export class Classes extends React.Component {
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Classes</Text>
           <Text style={[s.text, {paddingHorizontal: 20}]}>
-            {this.state.response}
+            Server Response: {this.state.response}
+          </Text>
+          <Padding height={30} />
+          <Text
+            onPress={() => navigate('Cancellation')}
+            style={[s.text, {fontWeight: '600'}]}>
+            Open Cancel Screen
+          </Text>
+          <Padding height={10} />
+          <Text
+            onPress={() => navigate('Confirmation')}
+            style={[s.text, {fontWeight: '600'}]}>
+            Open Confirm Screen
           </Text>
         </View>
         <NavBar selected="Classes" navigate={navigate} />

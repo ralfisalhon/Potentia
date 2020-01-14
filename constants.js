@@ -1,5 +1,5 @@
 export const c = {
-  test_mode: false,
+  test_mode: !true,
   logo_uri: require('./assets/images/potentia_logo.png'),
   stripped_logo_uri: require('./assets/images/potentia_logo_stripped.png'),
   bottom_dots_uri: require('./assets/images/bottom_dots_720_260.png'),

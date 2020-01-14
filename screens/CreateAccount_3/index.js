@@ -20,19 +20,8 @@ export class CreateAccount_3 extends React.Component {
   constructor() {
     super();
     this.state = {
-      person: {
-        first_name: 'Ralfi',
-        last_name: 'Salhon',
-        email: 'ralfisalhon@gmail.com',
-        phone_num: '8575235290',
-        major: 'CS',
-        password: '12345678',
-        dob: '06/12/97',
-        user_type: 'Tutor',
-      },
+      person: {},
     };
-
-    this.signUp();
   }
 
   updateField = (field, text) => {
@@ -41,7 +30,25 @@ export class CreateAccount_3 extends React.Component {
     this.setState({person: new_person});
   };
 
+  componentDidMount() {
+    this.setState({person: this.props.navigation.state.params.person});
+  }
+
+  submit = navigate => {
+    const {person} = this.state;
+    if (
+      person.password &&
+      person.confirm_password &&
+      person.password == person.confirm_password
+    ) {
+      this.signUp();
+    } else {
+      alert('Please fill in all fields! / Passwords do not match');
+    }
+  };
+
   signUp = async () => {
+    const {person} = this.state;
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = e => {
       if (xhr.readyState !== 4) return;
@@ -64,21 +71,21 @@ export class CreateAccount_3 extends React.Component {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send(
       'first_name=' +
-        this.state.first_name +
+        person.first_name +
         '&last_name=' +
-        this.state.last_name +
+        person.last_name +
         '&email=' +
-        this.state.email +
+        person.email +
         '&phone_num=' +
-        this.state.phone_num +
+        person.phone_num +
         '&major=' +
-        this.state.major +
+        person.major +
         '&password=' +
-        this.state.password +
+        person.password +
         '&user_type=' +
-        this.state.user_type +
+        person.user_type +
         '&dob=' +
-        this.state.dob,
+        person.birthday,
     );
   };
 
@@ -109,33 +116,25 @@ export class CreateAccount_3 extends React.Component {
           <Text style={[s.text, s.edit]}>Edit</Text>
           <Padding height={12} />
           <Input
-            placeholder={'Username'}
-            value={this.state.person.first_name}
-            style={[s.text, s.input]}
-            onChange={text => this.updateField('first_name', text)}
-            maxLength={30}
-          />
-          <Padding height={15} />
-          <Input
             placeholder={'Password'}
-            value={this.state.person.last_name}
+            value={this.state.person.password}
             style={[s.text, s.input]}
-            onChange={text => this.updateField('last_name', text)}
+            onChange={text => this.updateField('password', text)}
             maxLength={30}
           />
           <Padding height={15} />
           <Input
             placeholder={'Confirm Password'}
-            value={this.state.person.birthday}
+            value={this.state.person.confirm_password}
             style={[s.text, s.input]}
-            onChange={text => this.updateField('birthday', text)}
+            onChange={text => this.updateField('confirm_password', text)}
             maxLength={30}
           />
           <Padding height={15} />
           <Button
             style={s.next}
             text={'Submit'}
-            onPress={() => navigate('Classes')}
+            onPress={() => this.submit()}
           />
         </View>
         <BottomDots opacity={0.75} />

@@ -25,6 +25,12 @@ export const s = StyleSheet.create({
     color: c.text_color,
     fontSize: 14,
   },
+  test: {
+    fontSize: 10,
+    color: 'red',
+    marginBottom: 15,
+    marginTop: -25,
+  },
   small_text: {
     fontSize: 12,
   },

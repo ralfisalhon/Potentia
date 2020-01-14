@@ -63,7 +63,7 @@ export const s = StyleSheet.create({
   },
   input: {
     width: windowWidth * 0.7,
-    height: 40,
+    height: 45,
   },
   next: {
     width: windowWidth * 0.5,

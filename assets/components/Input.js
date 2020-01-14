@@ -7,7 +7,7 @@ import {c} from '../../constants';
 class Input extends Component {
   static defaultProps = {
     placeholder: 'placeholder',
-    value: 'value',
+    value: null,
     maxLength: 20,
     placeholderTextColor: c.text_color,
     password: false,
