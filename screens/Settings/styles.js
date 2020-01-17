@@ -8,6 +8,7 @@ export const s = StyleSheet.create({
   },
   center: {
     alignItems: 'center',
+    flex: 1,
   },
   logo: {
     height: windowHeight * 0.1,
@@ -44,5 +45,10 @@ export const s = StyleSheet.create({
   },
   button: {
     width: windowWidth * 0.7,
+  },
+  goBack: {
+    width: windowWidth * 0.7,
+    backgroundColor: c.icon_gray,
+    marginBottom: 25,
   },
 });

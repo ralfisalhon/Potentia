@@ -65,11 +65,20 @@ export class Welcome extends React.Component {
     });
   }
 
+  validateEmail = email => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      return true;
+    }
+    alert('You have entered an invalid email address!');
+    return false;
+  };
+
   logIn = async () => {
     const {email, password} = this.state;
 
-    if (!email || !password || email.length < 6 || password.length < 6) {
-      alert('Please enter your email and password');
+    if (!this.validateEmail(email)) {
+      alert('Incorrect email');
+      this.setState({loggingIn: false});
       return;
     }
 
@@ -95,6 +104,9 @@ export class Welcome extends React.Component {
 
         this.setState({loggingIn: false});
         this.props.navigation.navigate('Classes');
+      } else if (xhr.status == 401) {
+        alert('Incorrect Email / Password');
+        this.setState({loggingIn: false});
       } else {
         console.warn('Something went wrong while logging in:', xhr.readyState);
         this.setState({loggingIn: false});

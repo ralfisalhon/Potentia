@@ -62,6 +62,15 @@ export class Settings extends React.Component {
             text={'Log Out'}
             onPress={() => this.logout(navigate)}
           />
+          <Padding height={20} />
+          <View style={{flex: 1, justifyContent: 'flex-end'}}>
+            <Button
+              textStyle={{fontSize: 16}}
+              style={s.goBack}
+              text={'Go Back'}
+              onPress={() => this.props.navigation.goBack()}
+            />
+          </View>
         </View>
       </SafeAreaView>
     );
