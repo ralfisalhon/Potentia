@@ -36,11 +36,15 @@ export const s = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'gray',
   },
-  button: {
+  button: {},
+  buttonText: {
+    fontSize: 12,
+  },
+  class: {
     borderWidth: 1,
-    paddingVertical: 30,
+    padding: 10,
+    marginVertical: 5,
+    borderRadius: 10,
     width: windowWidth * 0.8,
-    alignItems: 'center',
-    borderRadius: 8,
   },
 });

@@ -37,17 +37,30 @@ export class CreateAccount extends React.Component {
     this.setState({person: new_person});
   };
 
+  validEmail = email => {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      return true;
+    }
+    alert('You have entered an invalid email address!');
+    return false;
+  };
+
   continue = navigate => {
     const {person} = this.state;
-    if (
-      (person.first_name &&
-        person.last_name &&
-        person.birthday &&
-        person.email &&
-        person.phone) ||
-      c.test_mode
-    ) {
+    if (c.test_mode) {
       navigate('CreateAccount_2', {person: this.state.person});
+      return;
+    }
+    if (
+      person.first_name &&
+      person.last_name &&
+      person.birthday &&
+      person.email &&
+      person.phone
+    ) {
+      if (this.validEmail(person.email))
+        navigate('CreateAccount_2', {person: this.state.person});
+      else alert('Invalid Email Address');
     } else {
       alert('Please fill in all fields!');
     }
@@ -70,21 +83,7 @@ export class CreateAccount extends React.Component {
               <View style={s.unfilled_bar} />
               <View style={s.unfilled_bar} />
             </View>
-            <Padding height={12} />
-            <View style={s.profilePic}>
-              <Image
-                style={s.image}
-                resizeMode={'contain'}
-                source={c.avatar_uri}
-              />
-            </View>
-            <Padding height={5} />
-            <Text
-              onPress={() => alert('[Unimplemented]')}
-              style={[s.text, s.edit]}>
-              Edit
-            </Text>
-            <Padding height={12} />
+            <Padding height={24} />
             <Input
               placeholder={'First Name'}
               value={this.state.person.first_name}
@@ -115,6 +114,7 @@ export class CreateAccount extends React.Component {
               style={[s.text, s.input]}
               onChange={text => this.updateField('email', text)}
               maxLength={30}
+              email={true}
             />
             <Padding height={15} />
             <Input
@@ -123,6 +123,7 @@ export class CreateAccount extends React.Component {
               style={[s.text, s.input]}
               onChange={text => this.updateField('phone', text)}
               maxLength={30}
+              number={true}
             />
             <Padding height={15} />
             <Button

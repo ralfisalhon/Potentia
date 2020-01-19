@@ -17,6 +17,7 @@ import {Input} from '../../assets/components/Input';
 import {TopLogo} from '../../assets/components/TopLogo';
 import {Button} from '../../assets/components/Button';
 import {BottomDots} from '../../assets/components/BottomDots';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 export class CreateAccount_2 extends React.Component {
   static navigationOptions = {
@@ -28,6 +29,7 @@ export class CreateAccount_2 extends React.Component {
     super();
     this.state = {
       person: {},
+      student: true,
     };
   }
 
@@ -39,6 +41,7 @@ export class CreateAccount_2 extends React.Component {
 
   continue = navigate => {
     const {person} = this.state;
+    person.user_type = this.state.student ? 'student' : 'tutor';
     if (
       c.test_mode ||
       (person.user_type &&
@@ -58,6 +61,7 @@ export class CreateAccount_2 extends React.Component {
 
   render() {
     const {navigate} = this.props.navigation;
+    const {student} = this.state;
 
     return (
       <SafeAreaView style={s.container}>
@@ -73,28 +77,33 @@ export class CreateAccount_2 extends React.Component {
               <View style={s.filled_bar} />
               <View style={s.unfilled_bar} />
             </View>
-            <Padding height={12} />
-            <View style={s.profilePic}>
-              <Image
-                style={s.image}
-                resizeMode={'contain'}
-                source={c.avatar_uri}
-              />
+            <Padding height={24} />
+            <View style={s.selectContainer}>
+              <TouchableOpacity
+                onPress={() => this.setState({student: true})}
+                style={[
+                  s.input,
+                  s.select,
+                  student && {backgroundColor: c.button_blue},
+                ]}>
+                <Text style={[s.text, s.title, student && {color: c.bg_color}]}>
+                  Student
+                </Text>
+              </TouchableOpacity>
+              <View style={{flex: 1}}></View>
+              <TouchableOpacity
+                onPress={() => this.setState({student: false})}
+                style={[
+                  s.input,
+                  s.select,
+                  !student && {backgroundColor: c.button_blue},
+                ]}>
+                <Text
+                  style={[s.text, s.title, !student && {color: c.bg_color}]}>
+                  Tutor
+                </Text>
+              </TouchableOpacity>
             </View>
-            <Padding height={5} />
-            <Text
-              onPress={() => alert('[Unimplemented]')}
-              style={[s.text, s.edit]}>
-              Edit
-            </Text>
-            <Padding height={12} />
-            <Input
-              placeholder={'Student / Teacher'}
-              value={this.state.person.user_type}
-              style={[s.text, s.input]}
-              onChange={text => this.updateField('user_type', text)}
-              maxLength={30}
-            />
             <Padding height={15} />
             <Input
               placeholder={'School'}

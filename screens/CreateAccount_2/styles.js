@@ -65,6 +65,20 @@ export const s = StyleSheet.create({
     width: windowWidth * 0.7,
     height: 45,
   },
+  select: {
+    borderWidth: 1,
+    borderRadius: 25,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderColor: 'gray',
+    width: windowWidth * 0.34,
+  },
+  selectContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    flex: 1,
+    width: windowWidth * 0.7,
+  },
   next: {
     width: windowWidth * 0.5,
     paddingVertical: 8,

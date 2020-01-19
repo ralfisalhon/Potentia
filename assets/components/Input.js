@@ -11,6 +11,8 @@ class Input extends Component {
     maxLength: 20,
     placeholderTextColor: c.text_color,
     password: false,
+    number: false,
+    email: false,
   };
 
   render() {
@@ -22,6 +24,8 @@ class Input extends Component {
       style,
       onChange,
       password,
+      number,
+      email,
     } = this.props;
 
     const defStyle = {
@@ -51,6 +55,9 @@ class Input extends Component {
         secureTextEntry={password}
         autoCompleteType={password ? 'password' : 'username'}
         textContentType={password ? 'password' : 'emailAddress'}
+        keyboardType={
+          number ? 'phone-pad' : email ? 'email-address' : 'default'
+        }
       />
     );
   }
