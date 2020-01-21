@@ -26,7 +26,8 @@ export class Classes extends React.Component {
   constructor() {
     super();
     this.state = {
-      response: ['Fetching /courses'],
+      response: null,
+      fetching: true,
     };
 
     this.getClasses();
@@ -42,6 +43,7 @@ export class Classes extends React.Component {
         '| responseText:',
         xhr.responseText,
       );
+      this.setState({fetching: false});
       if (xhr.status == 200) {
         var data = xhr.responseText;
         var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
@@ -60,17 +62,39 @@ export class Classes extends React.Component {
   renderItem = (item, index) => {
     return (
       <View style={s.class}>
-        {item.students?.length > 1 && <Text>{item.students}</Text>}
-        <Text>{item._id}</Text>
-        <Text>{item.name}</Text>
-        <Text>{item.courseID}</Text>
-        <Text>{item.location}</Text>
+        <Text style={[s.text, s.title]}>
+          {item.name} <Text style={s.id}>({item._id})</Text>
+        </Text>
+        <Text style={s.text}>Tutor: {item.tutor}</Text>
+        <Text style={s.text}>Students: {item.students}</Text>
+        <Text style={s.text}>Location: {item.location}</Text>
+        <Padding height={10} />
+        <View style={s.row}>
+          <Button
+            style={s.button}
+            onPress={() =>
+              this.props.navigation.navigate('Confirmation', {
+                date: item.date,
+                location: item.location,
+                tutor: item.tutor,
+              })
+            }
+            textStyle={s.buttonText}
+            text={'Confirm Class'}
+          />
+          <Button
+            onPress={() => this.props.navigation.navigate('Cancellation')}
+            textStyle={s.buttonText}
+            text={'Cancel Class'}
+          />
+        </View>
       </View>
     );
   };
 
   render() {
     const {navigate} = this.props.navigation;
+    const {fetching} = this.state;
 
     return (
       <SafeAreaView style={s.container}>
@@ -80,20 +104,6 @@ export class Classes extends React.Component {
           <View style={s.center}>
             <Text style={[s.text, s.title]}>Classes</Text>
             <Padding height={10} />
-            <View style={{flexDirection: 'row'}}>
-              <Button
-                onPress={() => navigate('Cancellation')}
-                textStyle={s.buttonText}
-                text={'Open Cancel Screen'}
-              />
-              <Padding width={10} />
-              <Button
-                onPress={() => navigate('Confirmation')}
-                textStyle={s.buttonText}
-                text={'Open Confirm Screen'}
-              />
-            </View>
-            <Padding height={10} />
             <FlatList
               scrollEnabled={true}
               showsVerticalScrollIndicator={false}
@@ -101,6 +111,10 @@ export class Classes extends React.Component {
               renderItem={({item, index}) => this.renderItem(item, index)}
               keyExtractor={(_, index) => index.toString()}
             />
+            <Padding height={5} />
+            {fetching && (
+              <Text style={[s.text, s.title]}>Fetching courses...</Text>
+            )}
           </View>
         </ScrollView>
         <NavBar selected="Classes" navigate={navigate} />

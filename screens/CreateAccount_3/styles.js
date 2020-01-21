@@ -29,6 +29,12 @@ export const s = StyleSheet.create({
     textAlign: 'left',
     fontSize: 22,
   },
+  biggerText: {
+    fontWeight: '500',
+    textAlign: 'center',
+    fontSize: 16,
+    paddingHorizontal: 20,
+  },
   three_bars: {
     width: windowWidth * 0.9,
     height: 8,

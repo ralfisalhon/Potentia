@@ -28,7 +28,10 @@ export const s = StyleSheet.create({
   title: {
     fontWeight: '600',
     textAlign: 'left',
-    fontSize: 22,
+    fontSize: 18,
+  },
+  id: {
+    fontWeight: '300',
   },
   line: {
     height: 2,
@@ -36,15 +39,22 @@ export const s = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'gray',
   },
-  button: {},
+  button: {
+    // backgroundColor: c.potentia_orange,
+  },
   buttonText: {
-    fontSize: 12,
+    fontSize: 14,
   },
   class: {
     borderWidth: 1,
-    padding: 10,
+    padding: 15,
     marginVertical: 5,
-    borderRadius: 10,
+    borderRadius: 15,
     width: windowWidth * 0.8,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

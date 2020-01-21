@@ -32,6 +32,7 @@ export class Confirmation extends React.Component {
 
   render() {
     const {navigate} = this.props.navigation;
+    const {date, location, tutor} = this.props.navigation.state.params;
 
     return (
       <SafeAreaView style={s.container}>
@@ -46,13 +47,13 @@ export class Confirmation extends React.Component {
           <Padding height={20} />
           <View style={s.profile}>
             <Text style={[s.text, s.profileTitle]}>Date</Text>
-            <Text style={[s.text, s.profileText]}>{this.state.date}</Text>
+            <Text style={[s.text, s.profileText]}>{date}</Text>
             <Padding height={8} />
             <Text style={[s.text, s.profileTitle]}>Location</Text>
-            <Text style={[s.text, s.profileText]}>{this.state.location}</Text>
+            <Text style={[s.text, s.profileText]}>{location}</Text>
             <Padding height={8} />
-            <Text style={[s.text, s.profileTitle]}>Learner</Text>
-            <Text style={[s.text, s.profileText]}>{this.state.learner}</Text>
+            <Text style={[s.text, s.profileTitle]}>Tutor</Text>
+            <Text style={[s.text, s.profileText]}>{tutor}</Text>
           </View>
         </View>
         <NavBar selected="Classes" navigate={navigate} />

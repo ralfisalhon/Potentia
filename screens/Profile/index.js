@@ -23,8 +23,36 @@ export class Profile extends React.Component {
       joined: 'Dec 29, 2019',
       classes_taught: 10,
       points: 5000,
+      response: 'Fetching /getProfile',
     };
+
+    this.getProfile();
   }
+
+  getProfile = async () => {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = e => {
+      if (xhr.readyState !== 4) return;
+      console.warn(
+        'getProfile | Status:',
+        xhr.status,
+        '| responseText:',
+        xhr.responseText,
+      );
+      if (xhr.status == 200) {
+        var data = xhr.responseText;
+        var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+        // console.warn(obj[0]);
+        this.setState({response: obj});
+      } else {
+        this.setState({response: xhr.responseText});
+      }
+    };
+
+    xhr.open('GET', 'https://potentia-server.herokuapp.com/getProfile');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send();
+  };
 
   render() {
     const {navigate} = this.props.navigation;
@@ -60,6 +88,10 @@ export class Profile extends React.Component {
             <Text style={[s.text, s.profileTitle]}>Points</Text>
             <Text style={[s.text, s.profileText]}>{this.state.points} Pts</Text>
           </View>
+          <Padding height={20} />
+          <Text style={[s.text, {paddingHorizontal: 20}]}>
+            {this.state.response}
+          </Text>
         </View>
         <NavBar selected="Profile" navigate={navigate} />
       </SafeAreaView>

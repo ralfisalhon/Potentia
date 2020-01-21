@@ -107,6 +107,7 @@ export class Welcome extends React.Component {
       } else if (xhr.status == 401) {
         alert('Incorrect Email / Password');
         this.setState({loggingIn: false});
+        return;
       } else {
         console.warn('Something went wrong while logging in:', xhr.readyState);
         this.setState({loggingIn: false});

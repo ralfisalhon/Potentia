@@ -60,7 +60,10 @@ export class CreateAccount extends React.Component {
     ) {
       if (this.validEmail(person.email))
         navigate('CreateAccount_2', {person: this.state.person});
-      else alert('Invalid Email Address');
+      else {
+        alert('Invalid Email Address');
+        return;
+      }
     } else {
       alert('Please fill in all fields!');
     }
