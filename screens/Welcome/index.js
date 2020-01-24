@@ -47,6 +47,7 @@ export class Welcome extends React.Component {
     DefaultPreference.get('pushToken').then(function(pushToken) {
       if (pushToken) {
         that.setState({pushToken});
+        globalToken = pushToken;
       }
     });
 
@@ -57,8 +58,11 @@ export class Welcome extends React.Component {
         that.setState({rememberMe: true});
         DefaultPreference.get('token').then(function(token) {
           if (token) {
-            global.globalToken = token;
-            that.props.navigation.navigate('Classes');
+            DefaultPreference.get('email').then(function(email) {
+              globalToken = token;
+              globalEmail = email;
+              that.props.navigation.navigate('Classes');
+            });
           }
         });
       }
@@ -69,7 +73,6 @@ export class Welcome extends React.Component {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
       return true;
     }
-    alert('You have entered an invalid email address!');
     return false;
   };
 
@@ -97,6 +100,7 @@ export class Welcome extends React.Component {
         var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
 
         const {iat, exp, token} = obj;
+        globalEmail = email;
         DefaultPreference.set('email', email);
         DefaultPreference.set('iat', iat);
         DefaultPreference.set('exp', exp);
@@ -126,6 +130,7 @@ export class Welcome extends React.Component {
       onRegister: function(token) {
         if (token?.token) {
           that.setState({pushToken: token.token});
+          globalToken = token.token;
         }
 
         DefaultPreference.set('pushToken', token.token).then(function() {

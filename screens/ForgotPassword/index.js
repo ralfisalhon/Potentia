@@ -32,10 +32,11 @@ export class ForgotPassword extends React.Component {
       alert('Please enter your email!');
       return;
     }
-    alert(
-      '[Unimplemented] Instructions on how to reset your password have been sent to your email: ' +
-        this.state.username,
-    );
+    // alert(
+    //   '[Unimplemented] Instructions on how to reset your password have been sent to your email: ' +
+    //     this.state.username,
+    // );
+    alert('Sorry, this is a work in progress!');
     navigate('Welcome');
   };
 

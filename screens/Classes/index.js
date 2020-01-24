@@ -33,6 +33,32 @@ export class Classes extends React.Component {
     this.getClasses();
   }
 
+  getCourse = async id => {
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = e => {
+      if (xhr.readyState !== 4) return;
+      console.warn(
+        'getCourse | Status:',
+        xhr.status,
+        '| responseText:',
+        xhr.responseText,
+      );
+      this.setState({fetching: false});
+      if (xhr.status == 200) {
+        var data = xhr.responseText;
+        var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
+        console.warn(obj);
+        // this.setState({response: obj});
+      } else {
+        // console.warn('Status not 200', xhr.responseText);
+      }
+    };
+
+    xhr.open('GET', 'https://potentia-server.herokuapp.com/courses/' + id);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.send();
+  };
+
   getClasses = async () => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = e => {
@@ -47,8 +73,9 @@ export class Classes extends React.Component {
       if (xhr.status == 200) {
         var data = xhr.responseText;
         var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
-        // console.warn(obj[0]);
+        console.warn(obj[0]);
         this.setState({response: obj});
+        this.getCourse(obj[0]._id);
       } else {
         // console.warn('Status not 200', xhr.responseText);
       }

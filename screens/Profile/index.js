@@ -19,22 +19,20 @@ export class Profile extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: 'Tim J. Smith',
-      joined: 'Dec 29, 2019',
-      classes_taught: 10,
-      points: 5000,
-      response: 'Fetching /getProfile',
+      name: null,
+      email: null,
+      user_type: null,
     };
 
-    this.getProfile();
+    this.profile();
   }
 
-  getProfile = async () => {
+  profile = async () => {
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = e => {
       if (xhr.readyState !== 4) return;
       console.warn(
-        'getProfile | Status:',
+        'profile | Status:',
         xhr.status,
         '| responseText:',
         xhr.responseText,
@@ -49,13 +47,17 @@ export class Profile extends React.Component {
       }
     };
 
-    xhr.open('GET', 'https://potentia-server.herokuapp.com/getProfile');
+    xhr.open(
+      'GET',
+      'https://potentia-server.herokuapp.com/profile/' + globalEmail,
+    );
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.send();
   };
 
   render() {
     const {navigate} = this.props.navigation;
+    const {name, email, user_type} = this.state;
 
     return (
       <SafeAreaView style={s.container}>
@@ -64,29 +66,35 @@ export class Profile extends React.Component {
         <View style={s.center}>
           <Text style={[s.text, s.title]}>Profile</Text>
         </View>
-        <Padding height={10} />
         <View style={s.center}>
-          <View style={s.profilePic}>
+          {/* <View style={s.profilePic}>
             <Image
               style={s.image}
               resizeMode={'contain'}
               source={c.avatar_uri}
             />
-          </View>
+          </View> */}
           <Padding height={10} />
           <Text style={[s.text, s.name]}>{this.state.name}</Text>
           <Padding height={10} />
           <View style={s.profile}>
-            <Text style={[s.text, s.profileTitle]}>Joined</Text>
-            <Text style={[s.text, s.profileText]}>Dec 29, 2019</Text>
+            <Text style={[s.text, s.profileTitle]}>Name</Text>
+            <Text style={[s.text, s.profileText]}>{name}</Text>
             <Padding height={8} />
-            <Text style={[s.text, s.profileTitle]}>Classes Taught</Text>
-            <Text style={[s.text, s.profileText]}>
-              {this.state.classes_taught} Classes
-            </Text>
+            <Text style={[s.text, s.profileTitle]}>Email</Text>
+            <Text style={[s.text, s.profileText]}>{email}</Text>
             <Padding height={8} />
-            <Text style={[s.text, s.profileTitle]}>Points</Text>
-            <Text style={[s.text, s.profileText]}>{this.state.points} Pts</Text>
+            <Text style={[s.text, s.profileTitle]}>User_Type</Text>
+            <Text style={[s.text, s.profileText]}>{user_type}</Text>
+            <Padding height={15} />
+            <View style={s.center}>
+              <Button
+                onPress={() => alert('Sorry, this is a work in progress!')}
+                style={{width: windowWidth / 3}}
+                textStyle={{fontSize: 12}}
+                text={'Edit Info'}
+              />
+            </View>
           </View>
           <Padding height={20} />
           <Text style={[s.text, {paddingHorizontal: 20}]}>

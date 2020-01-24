@@ -15,6 +15,8 @@ const {Cancellation} = require('./screens/Cancellation/index');
 const {Confirmation} = require('./screens/Confirmation/index');
 
 console.disableYellowBox = !c.test_mode;
+global.globalEmail = 'NO_EMAIL';
+global.globalToken = 'NO_TOKEN';
 
 const MainNavigator = createStackNavigator({
   Welcome: {screen: Welcome},

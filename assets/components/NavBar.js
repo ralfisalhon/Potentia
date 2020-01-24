@@ -30,7 +30,8 @@ class NavBar extends Component {
           />
           {/* <Icon
             logo_uri={c.events_uri}
-            text="Events"å
+            text="Events"
+            å
             selected={selected == 'Events'}
             onPress={() => navigate('Events')}
           /> */}

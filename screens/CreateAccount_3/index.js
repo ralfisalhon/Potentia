@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Dimensions, SafeAreaView, Text, ScrollView} from 'react-native';
+import {
+  View,
+  Dimensions,
+  SafeAreaView,
+  Text,
+  ScrollView,
+  Platform,
+} from 'react-native';
 const {width: windowWidth, height: windowHeight} = Dimensions.get('window');
 
 import {s} from './styles';
@@ -70,12 +77,15 @@ export class CreateAccount_3 extends React.Component {
       if (xhr.status == 200) {
         // var data = xhr.responseText;
         // var obj = JSON.parse(data.replace(/\r?\n|\r/g, ''));
-        this.props.navigation.navigate('Classes');
+        this.props.navigation.navigate('Welcome');
       } else {
         console.warn('Could not sign up', xhr.status);
         this.setState({error: xhr.responseText});
       }
     };
+
+    console.warn(person);
+    console.warn(person.email);
 
     xhr.open('POST', 'https://potentia-server.herokuapp.com/signup');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -95,7 +105,11 @@ export class CreateAccount_3 extends React.Component {
         '&user_type=' +
         person.user_type +
         '&dob=' +
-        person.birthday,
+        person.birthday +
+        '&device_type=' +
+        Platform.OS +
+        '&notification_token=' +
+        globalToken,
     );
   };
 
