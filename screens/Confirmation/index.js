@@ -7,7 +7,6 @@ import {c} from '../../constants';
 import {Padding} from '../../assets/components/Padding';
 import {NavBar} from '../../assets/components/NavBar';
 import {TopLogo} from '../../assets/components/TopLogo';
-import {Button} from '../../assets/components/Button';
 
 export class Confirmation extends React.Component {
   static navigationOptions = {

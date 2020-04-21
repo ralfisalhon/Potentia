@@ -21,7 +21,7 @@ import {BottomDots} from '../../assets/components/BottomDots';
 export class CreateAccount extends React.Component {
   static navigationOptions = {
     header: null,
-    // gesturesEnabled: false,
+    // gesturesEnabled: c.test_mode,
   };
 
   constructor() {

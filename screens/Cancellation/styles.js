@@ -5,8 +5,6 @@ import {c} from '../../constants';
 
 export const s = StyleSheet.create({
   container: {
-    // justifyContent: 'center',
-    // alignItems: 'center',
     flex: 1,
     backgroundColor: c.bg_color,
   },
