@@ -4,7 +4,7 @@
 $ git clone https://github.com/ralfisalhon/potentia.git
 $ cd potentia
 $ npm install
-$ npm start
+$ react-native run-ios
 ```
 
-`localhost:3000` is now serving the website.
+An iOS simulator will now open and serve the application.
